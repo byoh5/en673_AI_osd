@@ -1,0 +1,17 @@
+         U atoi
+00000004 C h_errno
+000001fc T lwip_freeaddrinfo
+00000238 T lwip_getaddrinfo
+00000000 T lwip_gethostbyname
+00000094 T lwip_gethostbyname_r
+         U memp_free
+         U memp_malloc_fn
+         U memset
+         U my_copy
+         U netconn_gethostbyname
+         U printf
+0000000c b s_aliases.9816
+00000010 b s_hostent.9815
+00000008 b s_hostent_addr.9817
+00000000 b s_phostent_addr.9818
+         U strlen

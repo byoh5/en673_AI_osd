@@ -1,0 +1,15 @@
+         U DmaMemSet_ip
+00000000 b avi_header
+00001000 b avi_header_index
+00000000 T avi_write_chunkheader
+00000b54 T avi_write_header
+00000714 T avi_write_header_build_audio
+00000254 T avi_write_header_build_head
+000009bc T avi_write_header_build_junk
+00000a80 T avi_write_header_build_tail
+000008ac T avi_write_header_build_txts
+000004fc T avi_write_header_build_video
+000000ec T avi_write_index
+         U invalidate_dcache_range
+         U memcpy
+         U printf

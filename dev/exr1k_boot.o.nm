@@ -1,0 +1,15 @@
+         U _bss_e
+         U _bss_s
+         U _data_e
+         U _data_lma_s
+         U _data_s
+000000f8 T _init_bss_section
+00000080 T _init_data_section
+00000000 T _init_reset_section
+000000bc T _init_text_section
+         U _ispm_text_e
+         U _ispm_text_lma_s
+         U _ispm_text_s
+         U memcpy
+00000188 T set_code_hwp
+         U set_hwp

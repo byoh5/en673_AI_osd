@@ -1,0 +1,12 @@
+00000524 T IPtoStr
+000003d0 T enx_atoll
+00000314 T enx_atoull
+00000724 T enx_strcat
+00000000 D gNumcode
+00000058 T itoa
+00000118 T itoan
+         U strlen
+         U strncmp
+00000648 T strnstr
+00000000 T strrev
+00000260 T uitoan

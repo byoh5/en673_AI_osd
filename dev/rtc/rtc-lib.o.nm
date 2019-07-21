@@ -1,0 +1,3 @@
+00000000 r rtc_days_in_month
+00000000 T rtc_month_days
+00000088 T rtc_valid_tm

@@ -1,0 +1,150 @@
+Application Option(Build test / RC 0.1.6) - 180625
+- none				OK// 
+- ETH				OK// 
+- ETH + ACTIVEX			OK// 
+- ETH + ACTIVEX + ONVIF		OK// 
+- ETH + ONVIF			OK// 
+- ETH + WIFI			OK// 
+- ETH + WIFI + ACTIVEX		OK// 
+- ETH + WIFI + ONVIF		OK// 
+- ETH + WIFI + ACTIVEX + ONVIF	OK//
+- WIFI				OK// 
+- WIFI + ACTIVEX		OK// 
+- WIFI + ONVIF			OK// 
+- WIFI + ONVIF + ACTIVEX	OK// 
+
+※ SFLS overflow => 필요시 board.h "flash memory file system offset" 주석처리. 단, 펌웨어업데이트 오작동
+※ DDR overflow => board.h에서 Audio 주석으로 처리(Audio OFF) or JPEG는 JPEG_STREAM는 0으로 처리(JPEG stream OFF) or 문의
+
+
+################################################################################
+
+RC 0.1.6 (2018-07-31) / Beta version
+- RTSP server
+  : RTSP over HTTP memory leak 해결
+- JPEG
+  : 일부 설정에 의한 JPEG overflow 상황 발생시 정상범위로 제어, 관련코드(#if (JPEG_PREVENT_OVF==1) ~ #endif)
+- HTTP server
+  : Web에서 SD카드의 파일 탐색 및 다운로드 기능 추가
+- Make AVI
+  : CPU0에서 생성된 H.264/G.711 정보들을 녹화하기 위한 Queue를 일원화, 관련코드(MsgRecPut, MsgRecGet)
+  : Frame rate 변경시 기존 녹화 close 및 새 녹화 start 기능 추가, 관련코드(muxer_avienc_change_savetime)
+- Network interface
+  : netif up/down, link-up/down 시나리오 수정
+  : netif IP 할당 시나리오 수정
+  : Wi-Fi 작동 시나리오 수정
+- 기타
+  : CPU1에서 localtime, gmtime의 호출을 모두 enx_get_tmtime 함수로 대체
+  : Shell code 정리
+
+
+RC 0.1.5 (2017-12-31) / Beta version
+- ISP
+- Network
+  : RX Irq process 부분 수정
+  : Shared-SRAM에서 사용하던 RX queue 구조 변경(gptMsgNetworkRXShared, 0, 1)
+  : TCP/UDP의 동적/사용자 port 할당을 CPU0(49152 ~ 50176), CPU1(50177 ~ 65535)의 범위로 설정
+  : 다중 Network interface시 Default Network interface 설정(Bata)
+  : Wi-Fi 성능 일부 개선
+- RTSP server
+  : RTSP Response Message 개선
+  : Receive RTCP messages(Test)
+  : RTSP over HTTP, backchannel(Bata)
+- ONVIF
+  : Interface 오류 수정
+  : PTZ 추가
+- 기타
+  : IPCamSearch: Search를 Mutilcast 방식으로 변경, PC내 모든 Network interface에 message 발송
+  : JTAG를 통한 Console Shell(UART Shell 대체, 동시사용)(Bata)
+  : terminal s/w(ex: Tera Term)를 통한 Console log(Network Shell)(UART Shell, JTAG Shell 동시사용)(Bata)
+  : 일부 Shell 명령 개선(t, netstat)
+
+################################################################################
+
+RC 0.1.4 (2017-11-01) / Alpha version
+
+################################################################################
+
+RC 0.1.3 (2017-07-21) / Beta version
+- RTSP server
+  : GET_PARAMETER 응답 추가(cpu0/core/enx_stream/)
+  : RTSP Authorization의 rtsp ID/PW를 user ID/PW로 통합(cpu0/core/msgqpass.c, cpu1/task/change/videochange.c)
+- Ethernet Mac PAUSE 기능 추가(Ethernet 운용시 dev/board.h의 ETH_MAC_PAUSE를 1로 사용, 관련코드 #if (ETH_MAC_PAUSE==1) ~ #endif)
+- Audio G.711 Network RX(UDP:port5000) 추가(기능 테스트)(dev/board.h의 AUDIO_RX를 1로 사용, 관련코드 #if (AUDIO_RX==1) ~ #endif)
+- SD Card 초기화 실패시 50MHz에서 25MHz로 주파수 낮추는 과정 수정
+- 기타
+  : 소스코드 정리 및 최적화
+  : vsnprintf 통합
+- 추가예정 기능 및 오작동
+  : RTSP backchannel(미구현) / playback(미구현) / over HTTP(오작동)
+  : RTMP over TCP/UDP(test)
+  : ONVIF Device Manager에서 Streaming이 간헐적으로 끊기는 문제(NO SIGNAL)
+  : Audio Stream(test)
+  : Library FatFS 0.13 update(예정)
+
+################################################################################
+
+RC 0.1.2 (2017-04-28) / Beta version
+- Video stream
+  : RTSP 접속자 확인용 shell 명령 추가(명령:rtsp)
+  : RTP video buffer(sbuf) 운용 방식 변경(cpu0/core/enx_stream/)
+- Video encoder
+  : H.264 stream buffer 확장(cpu0/core/enx_video/h264.c)
+  : H.264용 RAW 데이터(BT0, BT1) 운용방식 변경(cpu0/core/enx_video/)
+  : H.264 1ch에서 작은 해상도로 30/60fps 전환시 오작동 해결
+  : JPEG Snapshot 운용방식 변경(cpu0/core/enx_video/jpeg.c)
+- ISP관련 일부 변경(cpu0/isp/)
+- FTP server 오작동 해결(cpu1/task/ftpd/)
+- HTTP server(cpu1/task/httpserver_raw/)
+  : 인증 오작동 해결
+  : Web OSD key 추가
+  : http_recv 운용변경(Test중)
+- ONVIF event 및 gsoap lib 문제 해소
+- Serial flash memory(winbond) driver 수정(W25Q64FV, W25Q128FV)(dev/sfls.c)
+- Ethernet Phy Loopback mode 추가
+- 추가예정 기능 및 문제
+  : RTSP backchannel / playback / over HTTP
+  : RTMP over TCP/UDP
+  : ONVIF Device Manager에서 Streaming이 간헐적으로 끊기는 문제
+
+################################################################################
+
+RC 0.1.1 (2017-03-14) / Beta version
+- 부트영역 PLL 설정순서 변경(boot/main/main.c)
+- makefile, mk, ld 파일 정리 및 ld 파일 명 변경
+- RTSP 명령 및 주소 관련 수정(cpu0/core/enx_stream/)
+- Video encoder(H.264, JPEG) 관련 Input mode 레지스터 수정(센서입력, BT.656, BT.1120)
+- 시리얼플래시메모리 저장 데이터(dev/user.c, .h)
+  : 기존 4KB를 분야별로 분리 / 시리얼플래시메모리의 FAT영역에 저장하지 않게 변경
+  : 시스템영역(4KB), 유저영역(4KB), ISP영역(32KB), ONVIF영역(12KB), Wi-Fi영역(4KB)
+  : Wi-Fi 구조체 통합
+  : Magic Number, Date ID 추가(verify)
+- CPU0의 하드웨어 초기화 함수 분리(cpu0/core/main/init.c)
+- ISP관련 일부 변경(cpu0/isp/)
+- Wi-Fi(cpu0/core/enx_lib/)
+  : SD8777 드라이버 제거
+- RTMP(cpu0/core/)
+  : 컴파일 시 라이브러리 형태가 아닌 오브젝트 형태로 컴파일 진행
+  : enx_rtmp_session폴더의 소스코드를 enx_rtmp폴더에 통합
+- HTTP(cpu1/task/httpserver_raw/)
+  : ISP, Video, Datetime 부분 html 및 CGI/SSI 수정
+  : 일부 오작동 CGI/SSI 수정
+- ONVIF(cpu1/task/onvif/)
+  : ISP 연동 부분 추가
+- I2C
+  : Audio, G-sensor, RTC 등 I2C가 연결되어 있는지 check 할 수 있는 함수 추가
+  : 옵션보드 미장착시 소스코드에서 RTC에 접근하려 하면 재부팅 하는 증상 해소(I2C 연결 check)
+- Mac address(cpu1/init.c)
+  : 잘못된 맥 주소가 입력된 상태에서 재부팅하던 것을 오류메시지가 반복되게 수정
+  : 해당 기능 OFF 하려면 dev/board.h에서 ETH_MAC_TEST을 0으로 변경
+  : 잘못된 맥 주소의 조건(모든 값이 0, 40번째 bit가 1, 하위 24bit가 1일 때(ff:ff:ff))
+- 미해결 문제
+  : FTP에서 폴더를 다운로드 받을 때, 폴더 내의 폴더가 있을 때 다운로드 실패
+  : Ethernet + Wi-Fi + ONVIF 시 ONVIF의 discovery 오작동
+  : SD 녹화 시 간헐적으로 파일의 첫 frame이 깨지는 증상
+  : ONVIF 안정화
+
+################################################################################
+
+RC 0.1.0 (2017-02-24) / Alpha version
+- First Release

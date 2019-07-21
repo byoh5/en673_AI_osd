@@ -1,0 +1,15 @@
+         U memp_free
+         U memp_malloc_fn
+000000b4 T netbuf_alloc
+000002e0 T netbuf_chain
+00000390 T netbuf_data
+00000050 T netbuf_delete
+000004c4 T netbuf_first
+00000198 T netbuf_free
+00000000 T netbuf_new
+00000444 T netbuf_next
+00000218 T netbuf_ref
+         U pbuf_alloc
+         U pbuf_cat
+         U pbuf_free
+         U printf

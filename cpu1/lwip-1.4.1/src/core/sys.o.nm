@@ -1,0 +1,4 @@
+         U sys_arch_sem_wait
+00000000 T sys_msleep
+         U sys_sem_free
+         U sys_sem_new

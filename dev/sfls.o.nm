@@ -1,0 +1,11 @@
+         U DmaMemCpy_ip
+00000168 T FlsErase
+00000000 T FlsRead
+00000040 T FlsWrite
+00000220 T SflsEraseAll
+00000180 T SflsEraseBlock
+000000b4 T SflsEraseSect
+0000030c T SflsReadReg
+0000005c T SflsWriteEn
+00000288 T SflsWriteReg
+         U invalidate_dcache_range

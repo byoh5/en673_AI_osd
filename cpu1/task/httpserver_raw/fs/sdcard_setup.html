@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title></title>
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<script type="text/javascript">
+<!--
+function SetFormDefaults()
+{
+//<!--#sy_user-->
+
+//
+
+	if(sdsave != -1)
+	{
+		document.form.s_u_sd[sdsave].checked = true;
+	}
+	else
+	{
+		var tgSD = document.getElementById("set_sd");
+		tgSD.style.display = "none";
+	}
+}
+//-->
+</script>
+</head>
+<body onload="SetFormDefaults();">
+<form id="form" name="form" method="get" action="appsdsetup.cgi">
+	<div class="sub-title">
+		<h3>SDcard Setup</h3>
+	</div>
+	<hr>
+	<div id="set_sd">
+		<label class="sub-label">SDcard Save</label>
+		<input class="btn btn-default btn-xs" name="btOK" type="submit" value="submit"/>
+		<label class="radio-inline"><input type="radio" name="s_u_sd" value=0>USE</label>
+		<label class="radio-inline"><input type="radio" name="s_u_sd" value=1>UNUSE</label>
+	</div>
+</form>
+<form id="form_jpeg" name="form_jpeg" method="get" action="appsdsetup.cgi">
+	<div>
+		<br />
+		<label class="sub-label">Save Event Recoding</label>
+		<input class="btn btn-default btn-xs" name="saveevt" type="submit" value="submit"/>
+	</div>
+</form>
+<form id="form_jpeg" name="form_jpeg" method="get" action="appsdsetup.cgi">
+	<hr>
+	<div>
+		<label class="sub-label">Save Jpeg</label>
+		<input class="btn btn-default btn-xs" name="savejpeg" type="submit" value="submit"/>
+	</div>
+</form>
+<form id="form_jpeg" name="form_jpeg" method="get" action="appsdsetup.cgi">
+	<hr>
+	<div>
+		<label class="sub-label">Format</label>
+		<input class="btn btn-default btn-xs" name="sdformat" type="submit" value="submit"/>
+	</div>
+</form>
+</body>
+</html>

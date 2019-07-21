@@ -1,0 +1,387 @@
+
+*******************************************************************
+Compile boot...
+> main/reset.S
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/exr1k_boot.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/exr1k_spr.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/exr1k_xsr.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/lib/stdlib.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/lib/string.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/lib/stdio.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/lib/vsnprintf/vsnprintf.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/cpu.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/ddr.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/dma.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/uart.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/sfls.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/user.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/msg.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/sys.c
+> main/main.c
+boot Link...
+ 
+Generate /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/output/module/boot.bin: 65536 bytes
+ @PLATFORM: linux
+ @MODE    : release
+ @FLAGS   :  -D_SIZE_FIXED -DPERI_SHARED -DCOMMON_SHARED  -D_INLINE
+ 
+boot Clean...
+
+*******************************************************************
+Compile cpu0...
+> isp_dev.c
+> isp_dev_flash.c
+> isp_dev_gpio.c
+> isp_dev_irq.c
+> isp_dev_isp.c
+> isp_dev_spi.c
+> isp_dev_timer.c
+> isp_dev_twi.c
+> isp_dev_uart.c
+> isp_dev_wdt.c
+> isp_app.c
+> isp_app_ae.c
+> isp_app_awb.c
+> isp_app_comm.c
+> isp_app_cont.c
+> isp_app_dbg.c
+> isp_app_defect.c
+> isp_app_etc.c
+> isp_app_fadj.c
+> isp_app_maf.c
+> isp_app_init.c
+> isp_app_key.c
+> isp_app_main.c
+> isp_app_menu.c
+> isp_app_mode.c
+> isp_app_tdn.c
+> isp_app_util.c
+> isp_app_shd.c
+> isp_app_imd.c
+> isp_app_imd_test.c
+> Enc_Mem_Test.c
+> isp_image_path.c
+ISP Link...
+> api/api_lib.c
+> api/api_msg.c
+> api/err.c
+> api/netbuf.c
+> api/netifapi.c
+> api/sockets.c
+> api/tcpip.c
+> core/def.c
+> core/dhcp.c
+> core/dns.c
+> core/init.c
+> core/mem.c
+> core/memp.c
+> core/netif.c
+> core/pbuf.c
+> core/raw.c
+> core/stats.c
+> core/sys.c
+> core/tcp.c
+> core/tcp_in.c
+> core/tcp_out.c
+> core/timers.c
+> core/udp.c
+> core/ipv4/autoip.c
+> core/ipv4/icmp.c
+> core/ipv4/igmp.c
+> core/ipv4/inet.c
+> core/ipv4/inet_chksum.c
+> core/ipv4/ip.c
+> core/ipv4/ip_addr.c
+> core/ipv4/ip_frag.c
+> core/snmp/asn1_dec.c
+> core/snmp/asn1_enc.c
+> core/snmp/mib2.c
+> core/snmp/mib_structs.c
+> core/snmp/msg_in.c
+> core/snmp/msg_out.c
+> netif/etharp.c
+> ports/sys_arch.c
+> enx_lwip_helper.c
+> ip_utils.c
+> eth/open_eth.c
+> eth/ethif.c
+> enx_eth_helper.c
+> main.c
+> init.c
+> msgqpass.c
+> stream_buffering.c
+> ftpd/ftp_data.c
+> http_tunnel/http_front.c
+> http_tunnel/http_tunnel.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/lib/rtspoverhttp/share_rtspoverhttp.c
+> lwiperf/lwiperf.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/cpu0/core/enx_os/enx_os.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/cpu0/core/enx_os/sscanf.c
+> rtmp_session.c
+> ngx_rtmp_alloc.c
+> ngx_rtmp_amf.c
+> ngx_rtmp_array.c
+> ngx_rtmp_connect.c
+> ngx_rtmp_core.c
+> ngx_rtmp_handshake.c
+> ngx_rtmp_send.c
+> ngx_rtmp_stream.c
+> ffmpeg_sha256.c
+> enx_video.c
+bitratectl.c: In function ‘bitctl_get_quantize_iframe_by_af’:
+bitratectl.c:730:6: warning: ‘i’ may be used uninitialized in this function
+> bitratectl.c
+> jpeg.c
+> h264.c
+> h264_core.c
+> enx_mch_video.c
+> h264_mch_core.c
+> h264_mch.c
+> rtp_h264.c
+> rtp_jpeg.c
+> rtp_audio.c
+> rtp_over_rtsp.c
+> rtsp_cmd.c
+> rtcp_recv.c
+> Base64.c
+> enx_audio.c
+Core Link...
+> reset.S
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/cache.S
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/exr1k_floats.S
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/exr1k_boot.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/exr1k_spr.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/exr1k_xsr.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/exr1k_timer.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/exr1k_floatc.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/lib/stdlib.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/lib/string.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/lib/stdio.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/lib/qsort.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/lib/enx_math.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/lib/vsnprintf/swfloat.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/lib/vsnprintf/hwfloat.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/lib/vsnprintf/vsnprintf.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/adc.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/audio/aud.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/cpu.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/dma.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/gpio.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/i2c.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/isp.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/isr.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/sdio.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/sfls.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/spi.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/msg.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/sys.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/timer.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/uart.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/util.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/user.c
+cpu0 Link...
+
+/opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/output/module/cpu0.or32:     file format elf32-or32
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .reset        00000fa0  04000000  06010000  00002000  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .rodata       0003ad80  08000000  06011000  00004000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  2 .text         00065400  0803ad80  0604bd80  0003ed80  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  3 .ispm_text    00003800  04001000  060b1180  000a5000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  4 .ispm_data    00000e40  04004800  060b4980  000a8800  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  5 .sh0sr_data   00002060  f0000000  f0000000  000ac000  2**2
+                  ALLOC
+  6 .sh1sr_data   00004e20  f0010000  f0010000  000ac000  2**2
+                  ALLOC
+  7 .data         000010a0  080a0180  060b57c0  000aa180  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  8 .flag_data    00000010  060bfff0  060bfff0  000abff0  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  9 .bss          000985c0  080a1220  060b6860  000ab220  2**2
+                  ALLOC
+ 10 .stb          00000040  0bc00000  0bc00000  000ac000  2**0
+                  CONTENTS
+ 11 .comment      00000051  00000000  00000000  000ac040  2**0
+                  CONTENTS, READONLY
+ 12 .debug_frame  0000871c  00000000  00000000  000ac094  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_abbrev 00006234  00000000  00000000  000b47b0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .debug_info   0001e4a0  00000000  00000000  000ba9e4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 15 .debug_line   0000d045  00000000  00000000  000d8e84  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 16 .debug_loc    0000bef0  00000000  00000000  000e5ec9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 17 .debug_pubnames 00001066  00000000  00000000  000f1db9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 18 .debug_pubtypes 00002cc3  00000000  00000000  000f2e1f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 19 .debug_aranges 000009a0  00000000  00000000  000f5ae2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 20 .debug_str    000023f3  00000000  00000000  000f6482  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 21 .debug_ranges 00000890  00000000  00000000  000f8875  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 
+Generate cpu0.bin: 720896 bytes
+ @PLATFORM: linux
+ @MODE    : release
+ @FLAGS   :  -D_SIZE_FIXED -DPERI_SHARED -DCOMMON_SHARED  -D_INLINE
+cpu0 Clean...
+
+*******************************************************************
+Compile cpu1...
+> heap_3.c
+> port.c
+> src/tasks.c
+> src/list.c
+> src/queue.c
+> fat/src/ff.c
+> fat/src/diskio.c
+> fat/src/option/ccsbcs.c
+> fat/src/option/syscall.c
+> _lib/Base64.c
+> _lib/md5.c
+> lwiperf/lwiperf.c
+> ping/ping.c
+> network_debugging/network_debugging.c
+> shell/shell.c
+> shell/shell_cmd.c
+> shell/shell_cmd_isp.c
+> shell/shell_cmd_sdio.c
+> shell/shell_cmd_common.c
+> shell/shell_cmd_net.c
+> shell/shell_cmd_fs.c
+> terminal/term_server.c
+> timer/timer_task.c
+> change/videochange.c
+> change/ipchange.c
+> httpserver_raw/fs.c
+> httpserver_raw/fsfilelist.c
+> httpserver_raw/httpd.c
+> httpserver_raw/cgissi.c
+> httpserver_raw/cgifuncs.c
+> httpserver_raw/cgissi_en673.c
+> httpserver_raw/cgissi_isp.c
+> httpserver_raw/http_authorization.c
+> httpserver_raw/http_tunneling.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/lib/rtspoverhttp/share_rtspoverhttp.c
+> sntpc/sntpc.c
+> upnpd/upnpd.c
+> sdcard/sdcard.c
+> ftpd/ftp_server.c
+> ftpd/ftp_util.c
+> avienc/fmt_avienc.c
+> avienc/muxer_avienc.c
+> avienc/stream_buffering.c
+> avienc/avi_restore.c
+> avienc/avienc_info.c
+> smtpc/smtpc.c
+> ddnsc/ddnsc.c
+> iputil/iputil.c
+> dhcpc/dhcpc.c
+> isp/isp_task.c
+> fwupdate/fwupdate.c
+> src/api/api_lib.c
+> src/api/api_msg.c
+> src/api/err.c
+> src/api/netbuf.c
+> src/api/netdb.c
+> src/api/netifapi.c
+> src/api/sockets.c
+> src/api/tcpip.c
+> src/core/def.c
+> src/core/dhcp.c
+> src/core/dns.c
+> src/core/init.c
+> src/core/mem.c
+> src/core/memp.c
+> src/core/netif.c
+> src/core/pbuf.c
+> src/core/raw.c
+> src/core/stats.c
+> src/core/sys.c
+> src/core/tcp.c
+> src/core/tcp_in.c
+> src/core/tcp_out.c
+> src/core/timers.c
+> src/core/udp.c
+> src/core/ipv4/autoip.c
+> src/core/ipv4/icmp.c
+> src/core/ipv4/igmp.c
+> src/core/ipv4/inet.c
+> src/core/ipv4/inet_chksum.c
+> src/core/ipv4/ip.c
+> src/core/ipv4/ip_addr.c
+> src/core/ipv4/ip_frag.c
+> src/core/snmp/asn1_dec.c
+> src/core/snmp/asn1_enc.c
+> src/core/snmp/mib2.c
+> src/core/snmp/mib_structs.c
+> src/core/snmp/msg_in.c
+> src/core/snmp/msg_out.c
+> src/netif/etharp.c
+> sys_arch.c
+> ethernetif.c
+> wifiif.c
+> networkif.c
+> reset.S
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/cache.S
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/exr1k_floats.S
+> file.c
+> init.c
+> main.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/lib/qsort.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/sdcd.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/eth.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/phy.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/msg.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/uxsr.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/user.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/exr1k_boot.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/exr1k_spr.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/exr1k_xsr.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/exr1k_timer.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/exr1k_floatc.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/lib/stdlib.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/lib/string.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/lib/stdio.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/lib/_gettimeofday.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/lib/vsnprintf/swfloat.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/lib/vsnprintf/hwfloat.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/lib/vsnprintf/vsnprintf.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/adc.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/cpu.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/dma.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/gpio.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/i2c.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/isp.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/isr.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/sfls.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/spi.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/sys.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/timer.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/uart.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/util.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/audio/aud.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/audio/tlv320aic3100.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/audio/es8374.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/rtc/rtc.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/rtc/rtc-lib.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/rtc/s35390a.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/rtc/pcf8563.c
+> /opt/Source/DEV_2019/osd/EN673_package_Ver0.1.7_190409/Code/en673_dev_rc017_dist/dev/gss/bma250.c
+cpu1 Link...
+ 
+Generate cpu1.bin: 851968 bytes
+ @PLATFORM: linux
+ @MODE    : release
+ @FLAGS   :  -D_SIZE_FIXED -DPERI_SHARED -DCOMMON_SHARED  -D_INLINE
+ 

@@ -1,0 +1,5 @@
+         U memset
+00000000 T rtc_clean
+00000000 B rtc_device
+00000060 T rtc_get_time
+00000024 T rtc_set_time

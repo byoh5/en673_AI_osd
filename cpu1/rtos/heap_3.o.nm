@@ -1,0 +1,10 @@
+         U calloc
+         U free
+         U malloc
+0000008c T pvPortCalloc
+00000000 T pvPortMalloc
+00000038 T pvPortRealloc
+         U realloc
+000000d4 T vPortFree
+         U vTaskSuspendAll
+         U xTaskResumeAll

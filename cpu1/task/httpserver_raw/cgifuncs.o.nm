@@ -1,0 +1,12 @@
+00000360 T CheckDecimalParam
+00000278 T DecodeFormString
+0000013c T DecodeHexEscape
+000001d4 T EncodeFormString
+00000000 T FindCGIParameter
+000004d4 T GetCGIParam
+0000053c T GetCGIParamBool
+000000ec T HexDigit
+00000078 T IsValidHexDigit
+         U snprintf
+         U strcasecmp
+         U strcmp

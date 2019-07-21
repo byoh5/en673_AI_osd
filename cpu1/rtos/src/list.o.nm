@@ -1,0 +1,5 @@
+00000000 T vListInitialise
+00000034 T vListInitialiseItem
+00000088 T vListInsert
+00000050 T vListInsertEnd
+000000f0 T vListRemove

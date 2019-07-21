@@ -1,0 +1,247 @@
+
+#include "soapH.h"
+
+char GLB_TZ_LIST[MAX_TIMEZONE][3][70] = { 
+"UTC-12:00","0", "DatelineStandardTime12",
+
+"UTC-11:00","1", "<UTC-11>11",
+
+"UTC-10:00","2", "AleutianStandardTime10DaylightTime,M3.2.0,M11.1.0",
+"UTC-10:00","2", "HawaiianStandardTime10",
+
+"UTC-09:30","3" ,"MarquesasStandardTime9:30",
+
+"UTC-09:00","4" ,"AlaskanStandardTime9DaylightTime,M3.2.0,M11.1.0",
+"UTC-09:00","4" ,"<UTC-09>9",
+
+"UTC-08:00","5" , "PacificStandardTimeMexico8DaylightTime,M3.2.0,M11.1.0",
+"UTC-08:00","5" , "PacificStandardTime8DaylightTime,M3.2.0,M11.1.0" ,
+"UTC-08:00","5" , "<UTC-08>8",
+
+"UTC-07:00","6" , "MountainStandardTime7DaylightTime,M3.2.0,M11.1.0" ,
+"UTC-07:00","6" , "USMountainStandardTime7" ,
+"UTC-07:00","6" , "MountainStandardTimeMexico7DaylightTime,M4.1.0,M10.5.0",
+
+"UTC-06:00","7" , "CentralStandardTimeMexico6DaylightTime,M4.1.0,M10.5.0",
+"UTC-06:00","7" , "CanadaCentralStandardTime6",
+"UTC-06:00","7" , "CentralStandardTime6DaylightTime,M3.2.0,M11.1.0",
+"UTC-06:00","7" , "EasterIslandStandardTime6DaylightTime,M8.2.6/22,M5.2.6/22" ,
+"UTC-06:00","7" , "CentralAmericaStandardTime6" ,
+
+"UTC-05:00","8" , "EasternStandardTime5DaylightTime,M3.2.0,M11.1.0" ,
+"UTC-05:00","8" , "SAPacificStandardTime5",
+"UTC-05:00","8" , "USEasternStandardTime5DaylightTime,M3.2.0,M11.1.0",
+"UTC-05:00","8" , "HaitiStandardTime5DaylightTime,M3.2.0,M11.1.0",
+"UTC-05:00","8" , "EasternStandardTimeMexico5",
+"UTC-05:00","8" , "TurksAndCaicosStandardTime5DaylightTime,M1.1.1/0,M11.1.0",
+"UTC-05:00","8" , "CubaStandardTime5DaylightTime,M3.2.0/0,M11.1.0/1",
+
+"UTC-04:00","9" , "PacificSAStandardTime4DaylightTime,M8.2.6/23:59:59,M5.2.6/23:59:59" ,
+"UTC-04:00","9" , "AtlanticStandardTime4DaylightTime,M3.2.0,M11.1.0" ,
+"UTC-04:00","9" , "SAWesternStandardTime4" ,
+"UTC-04:00","9" , "VenezuelaStandardTime4" ,
+"UTC-04:00","9" , "ParaguayStandardTime4DaylightTime,M10.1.6/23:59:59,M3.4.6/23:59:59" ,
+"UTC-04:00","9" , "CentralBrazilianStandardTime4DaylightTime,M11.1.0/0,M2.3.0/0" ,
+	
+"UTC-03:30","10" , "NewfoundlandStandardTime3:30DaylightTime,M3.2.0,M11.1.0",
+
+"UTC-03:00","11" , "GreenlandStandardTime3DaylightTime,M3.4.6/22,M10.5.6/23" ,
+"UTC-03:00","11" , "MontevideoStandardTime3" ,
+"UTC-03:00","11" , "ArgentinaStandardTime3" ,
+"UTC-03:00","11" , "ESouthAmericaStandardTime3DaylightTime,M11.1.0/0,M2.3.0/0" ,
+"UTC-03:00","11" , "BahiaStandardTime3" ,
+"UTC-03:00","11" , "SaintPierreStandardTime3DaylightTime,M3.2.0,M11.1.0" ,
+"UTC-03:00","11" , "TocantinsStandardTime3" ,
+"UTC-03:00","11" , "SAEasternStandardTime3" ,
+"UTC-03:00","11" , "MagallanesStandardTime3" ,
+
+"UTC-02:00","12" , "<Mid-AtlanticStandardTime>2DaylightTime,M3.5.0,M9.5.0" ,
+"UTC-02:00","12" , "<UTC-02>2" ,
+
+"UTC-01:00","13" , "AzoresStandardTime1DaylightTime,M3.5.0/0,M10.5.0/1" ,
+"UTC-01:00","13" , "CapeVerdeStandardTime1" ,
+
+"UTC","14","UTC0" ,
+
+"UTC+00:00","14" , "GMTStandardTime0DaylightTime,M3.5.0/1,M10.5.0" ,
+"UTC+00:00","14" , "GreenwichStandardTime0" ,
+"UTC+00:00","14" , "MoroccoStandardTime0DaylightTime,M3.4.0,M10.4.0/3" ,
+	
+"UTC+01:00","15" , "CentralEuropeStandardTime-1DaylightTime,M3.5.0,M10.5.0/3" ,
+"UTC+01:00","15" , "RomanceStandardTime-1DaylightTime,M3.5.0,M10.5.0/3",
+"UTC+01:00","15" , "CentralEuropeanStandardTime-1DaylightTime,M3.5.0,M10.5.0/3",
+"UTC+01:00","15" , "SaoTomeStandardTime-1DaylightTime0,M1.1.1/0,M1.1.1/1",
+"UTC+01:00","15" , "WEuropeStandardTime-1DaylightTime,M3.5.0,M10.5.0/3",
+"UTC+01:00","15" , "WCentralAfricaStandardTime-1",	
+
+"UTC+02:00","16" , "WestBankStandardTime-2DaylightTime,M3.4.6/1,M10.4.6/1" ,
+"UTC+02:00","16", "SyriaStandardTime-2DaylightTime,M3.5.5/0,M10.5.4/23:59:59",
+"UTC+02:00","16" , "MiddleEastStandardTime-2DaylightTime,M3.4.6/23:59:59,M10.5.6/23:59:59" ,
+"UTC+02:00","16" , "NamibiaStandardTime-2" ,
+"UTC+02:00","16" , "GTBStandardTime-2DaylightTime,M3.5.0/3,M10.5.0/4" ,
+"UTC+02:00","16", "JordanStandardTime-2DaylightTime,M3.5.4/23:59:59,M10.5.5/1",
+"UTC+02:00","16" , "IsraelStandardTime-2DaylightTime,M3.4.5,M10.5.0" ,
+"UTC+02:00","16" , "EgyptStandardTime-2" ,
+"UTC+02:00","16" , "KaliningradStandardTime-2" ,
+"UTC+02:00","16", "EEuropeStandardTime-2DaylightTime,M3.5.0,M10.5.0/3",
+"UTC+02:00","16" , "LibyaStandardTime-2" ,
+"UTC+02:00","16" , "SouthAfricaStandardTime-2" ,
+"UTC+02:00","16" , "SudanStandardTime-2" ,
+"UTC+02:00","16" , "FLEStandardTime-2DaylightTime,M3.5.0/3,M10.5.0/4" ,
+
+"UTC+03:00","17" , "EAfricaStandardTime-3" ,
+"UTC+03:00","17" , "RussianStandardTime-3" ,
+"UTC+03:00","17" , "BelarusStandardTime-3" ,
+"UTC+03:00","17" , "TurkeyStandardTime-3" ,
+"UTC+03:00","17" , "ArabStandardTime-3" ,
+
+"UTC+03:30","18" , "IranStandardTime-3:30DaylightTime,M3.4.5/0,M9.3.6/23:59:59" ,
+
+"UTC+04:00","19" , "AzerbaijanStandardTime-4" ,
+"UTC+04:00","19" , "SaratovStandardTime-4" ,
+"UTC+04:00","19" , "ArabianStandardTime-4" ,
+"UTC+04:00","19" , "AstrakhanStandardTime-4" ,
+"UTC+04:00","19" , "CaucasusStandardTime-4" ,
+"UTC+04:00","19" , "<RussiaTimeZone3>-4" ,
+"UTC+04:00","19" , "GeorgianStandardTime-4" ,
+"UTC+04:00","19" , "MauritiusStandardTime-4" ,
+
+"UTC+04:30","20" , "AfghanistanStandardTime-4:30" ,
+
+"UTC+05:00","21" , "WestAsiaStandardTime-5" ,
+"UTC+05:00","21" , "EkaterinburgStandardTime-5" ,
+"UTC+05:00","21" , "PakistanStandardTime-5" ,
+
+"UTC+05:30","22" , "SriLankaStandardTime-5:30" ,
+"UTC+05:30","22" , "IndiaStandardTime-5:30" ,
+
+"UTC+05:45","23" , "NepalStandardTime-5:45" ,
+
+"UTC+06:00","24" , "BangladeshStandardTime-6" ,
+"UTC+06:00","24" , "CentralAsiaStandardTime-6" ,
+"UTC+06:00","24" , "OmskStandardTime-6" ,
+
+"UTC+06:30","25" , "MyanmarStandardTime-6:30" ,
+
+"UTC+07:00","26" , "NCentralAsiaStandardTime-7" ,
+"UTC+07:00","26" , "AltaiStandardTime-7" ,
+"UTC+07:00","26" , "SEAsiaStandardTime-7" ,
+"UTC+07:00","26" , "NorthAsiaStandardTime-7" ,
+"UTC+07:00","26" , "TomskStandardTime-7" ,
+"UTC+07:00","26" , "WMongoliaStandardTime-7" ,
+
+"UTC+08:00","27" , "ChinaStandardTime-8" ,
+"UTC+08:00","27" , "UlaanbaatarStandardTime-8" ,
+"UTC+08:00","27" , "NorthAsiaEastStandardTime-8" ,
+"UTC+08:00","27" , "SingaporeStandardTime-8" ,
+"UTC+08:00","27" , "TaipeiStandardTime-8" ,
+"UTC+08:00","27" , "WAustraliaStandardTime-8" ,
+
+"UTC+08:45","28" , "AusCentralWStandardTime-8:45" ,
+
+"UTC+09:00","29" , "KoreaStandardTime-9" ,
+"UTC+09:00","29" , "YakutskStandardTime-9" ,
+"UTC+09:00","29" , "TokyoStandardTime-9" ,
+"UTC+09:00","29", "TransbaikalStandardTime-9",
+
+"UTC+09:30","30", "AUSCentralStandardTime-9:30",
+"UTC+09:30","30", "CenAustraliaStandardTime-9:30DaylightTime,M10.1.0,M4.1.0/3",
+
+"UTC+10:00","31" , "WestPacificStandardTime-10" ,
+"UTC+10:00","31" , "EAustraliaStandardTime-10" ,
+"UTC+10:00","31" , "VladivostokStandardTime-10" ,
+"UTC+10:00","31" , "AUSEasternStandardTime-10DaylightTime,M10.1.0,M4.1.0/3" ,
+"UTC+10:00","31" , "TasmaniaStandardTime-10DaylightTime,M10.1.0,M4.1.0/3" ,
+
+"UTC+10:30","32" , "LordHoweStandardTime-10:30DaylightTime-11,M10.1.0,M4.1.0" ,
+
+"UTC+11:00","33" , "NorfolkStandardTime-11" ,
+"UTC+11:00","33" , "MagadanStandardTime-11" ,
+"UTC+11:00","33" , "BougainvilleStandardTime-11" ,
+"UTC+11:00","33" , "SakhalinStandardTime-11" ,
+"UTC+11:00","33" , "CentralPacificStandardTime-11" ,
+"UTC+11:00","33" , "<RussiaTimeZone10>-11" ,
+
+"UTC+12:00","34" , "<RussiaTimeZone11>-12" ,
+"UTC+12:00","34" , "NewZealandStandardTime-12DaylightTime,M9.5.0,M4.1.0/3",
+"UTC+12:00","34" , "KamchatkaStandardTime-12DaylightTime,M3.5.0,M10.5.0/3",
+"UTC+12:00","34" , "FijiStandardTime-12DaylightTime,M11.1.0,M1.2.0/3",
+"UTC+12:00","34" , "<UTC+12>-12",
+
+"UTC+12:45","35", "ChathamIslandsStandardTime-12:45DaylightTime,M9.5.0/2:45,M4.1.0/3:45",
+
+"UTC+13:00","36", "TongaStandardTime-13",
+"UTC+13:00","36", "SamoaStandardTime-13DaylightTime,M9.5.0/3,M4.1.0/4",
+"UTC+13:00","36", "<UTC+13>-13",
+
+"UTC+14:00","37", "LineIslandsStandardTime-14",
+
+" "," ", "PST8PDT,M3.2.0,M11.1.0"
+
+
+//"UTC-12", "", "",
+//"UTC-11","WST+11", "",
+//"UTC-10","HST+10", "HST10",
+//"UTC-9","AKST+9AKDT,M3.2.0,M11.1.0" ,"AKST9AKDT,M3.2.0,M11.1.0" ,
+//"UTC-8","PST+8PDT,M3.2.0,M11.1.0" , "PST8PDT,M3.2.0,M11.1.0" ,
+//"UTC-8","PST+8PDT,M4.1.0,M10.5.0" , "PST8PDT,M4.1.0,M10.5.0" ,
+//"UTC-7","MST+7" , "MST7" ,
+//"UTC-7","MST+7MDT,M3.2.0,M11.1.0" , "MST7MDT,M3.2.0,M11.1.0" ,
+//"UTC-7","MST+7MDT,M4.1.0,M10.5.0" , "MST7MDT,M4.1.0,M10.5.0" ,
+//"UTC-6","CST+6CDT,M3.2.0,M11.1.0" , "CST6CDT,M3.2.0,M11.1.0" ,
+//"UTC-6","CST+6" , "CST6" ,
+//"UTC-6","CST+6CDT,M4.1.0,M10.5.0" , "CST6CDT,M4.1.0,M10.5.0" ,
+//"UTC-5","COT+5" , "COT5" ,
+//"UTC-5","EST+5EDT,M3.2.0,M11.1.0" , "EST5EDT,M3.2.0,M11.1.0" ,
+//"UTC-4","VET+4:30" , "VET4:30" ,
+//"UTC-4","AST+4ADT,M3.2.0,M11.1.0" , "AST4ADT,M3.2.0,M11.1.0" ,
+//"UTC-4","CLT+4CLST,M10.2.0,M3.2.0" , "CLT4CLST,M10.2.0,M3.2.0" ,
+//"UTC-4","BOT+4" , "BOT4" ,
+//"UTC-3","NST+3:30NDT,M3.2.0,M11.1.0" , "NST3:30NDT,M3.2.0,M11.1.0" ,
+//"UTC-3","BRT+3BRST,M10.3.0,M2.3.0" , "BRT3BRST,M10.3.0,M2.3.0" ,
+//"UTC-3","ART+3ARST,M10.3.0,M3.3.0" , "ART3ARST,M10.3.0,M3.3.0" ,
+//"UTC-3","UYT+3UYST,M10.1.0,M3.2.0" , "UYT3UYST,M10.1.0,M3.2.0" ,
+//"UTC-2","UTC-2 no GST+2" , "UTC2 no GST+2" ,
+//"UTC-1","AZOT+1AZOST,M3.5.0,M10.5.0" , "AZOT1AZOST,M3.5.0,M10.5.0" ,
+//"UTC-1","UTC-1 no CVT+1" , "UTC1 no CVT+1" ,
+//"UTC","WET+0" , "WET0" ,
+//"UTC","GMT+0BST,M3.5.0,M10.5.0" , "GMT0BST,M3.5.0,M10.5.0" ,
+//"UTC+1","CET-1CEST,M3.5.0,M10.5.0" , "CET1CEST,M3.5.0,M10.5.0" ,
+//"UTC+1","WAT-1" , "WAT1" ,
+//"UTC+2","EET-2EEST,M3.5.0,M10.5.0" , "EET2EEST,M3.5.0,M10.5.0" ,
+//"UTC+2","EET-2EEST,M4.5.5,M8.3.4", "EET2EEST,M4.5.5,M8.3.4",
+//"UTC+2","IST-2IDT,M3.4.5,M9.5.0" , "IST2IDT,M3.4.5,M9.5.0" ,
+//"UTC+2","SAST-2" , "SAST2" ,
+//"UTC+3","MSK-3MSD,M3.5.0,M10.5.0" , "MSK3MSD,M3.5.0,M10.5.0" ,
+//"UTC+3","EAT-3" , "EAT3" ,
+//"UTC+3","AST-3ADT,M4.1.3,M10.1.4" , "AST3ADT,M4.1.3,M10.1.4" ,
+//"UTC+3","IRT-3:30IRST,M3.4.0,M9.4.2" , "IRT3:30IRST,M3.4.0,M9.4.2" ,
+//"UTC+4","GST-4" , "GST4" ,
+//"UTC+4","AZT-4AZST,M3.5.0,M10.5.0" , "AZT4AZST,M3.5.0,M10.5.0" ,
+//"UTC+4","AFT-4:30" , "AFT4:30" ,
+//"UTC+5","PKT-5" , "PKT5" ,
+//"UTC+5","IST-5:30" , "IST5:30" ,
+//"UTC+5","NPT-5:45" , "NPT5:45" ,
+//"UTC+6","ALMT-6" , "ALMT6" ,
+//"UTC+6","BDT-6" , "BDT6" ,
+//"UTC+6","MMT-6:30" , "MMT6:30" ,
+//"UTC+7","ICT-7" , "ICT7" ,
+//"UTC+8","HKT-8" , "HKT8" ,
+//"UTC+8","SGT-8" , "SGT8" ,
+//"UTC+8","WST-8WDT,M10.5.0,M3.5.0" , "WST8WDT,M10.5.0,M3.5.0" ,
+//"UTC+8","CST-8" , "CST8" ,
+//"UTC+9","JST-9" , "JST9" ,
+//"UTC+9","KST-9" , "KST9" ,
+//"UTC+9","CST-9:30CDT,M10.1.0,M4.1.0" , "CST9:30CDT,M10.1.0,M4.1.0" ,
+//"UTC+9","CST-9:30", "CST9:30",
+//"UTC+10","EST-10EDT,M10.1.0,M4.1.0" , "EST10EDT,M10.1.0,M4.1.0" ,
+//"UTC+10","EST-10" , "EST10" ,
+//"UTC+11","NCT-11" ,"NCT11" ,
+//"UTC+12","NZST-12NZDT,M9.5.0,M4.1." , "NZST12NZDT,M9.5.0,M4.1." ,
+//"UTC+12","MHT-12", "MHT12"
+//"UTC+13", "", "",
+//"UTC+14", "", ""
+
+};	
+
+

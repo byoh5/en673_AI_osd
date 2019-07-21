@@ -1,0 +1,12 @@
+         U Uart0_Printf
+00000034 T XsrAlign
+00000120 T XsrBreak
+00000000 T XsrBusErr
+00000160 T XsrDpFault
+00000200 T XsrDtlbMiss
+000000ec T XsrFloatPoint
+00000090 T XsrIllInsn
+000001b0 T XsrIpFault
+00000248 T XsrItlbMiss
+00000140 T XsrTrap
+         U enable_jtag_ctrl_exception

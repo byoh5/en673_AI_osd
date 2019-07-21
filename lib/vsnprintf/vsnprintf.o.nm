@@ -1,0 +1,12 @@
+         U IPtoStr
+         U __udivdi3
+         U __umoddi3
+         U flt
+         U ftoae
+         U ftoaf
+         U ftoag
+         U ftox
+         U memset
+00000000 t number
+         U strnlen
+0000026c T vsnprintf

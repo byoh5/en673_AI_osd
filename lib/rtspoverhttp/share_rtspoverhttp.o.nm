@@ -1,0 +1,3 @@
+00000000 T lookForHeader
+         U strlen
+         U strncmp

@@ -1,0 +1,8 @@
+00000040 T IntAdd
+00000000 T IntInit
+0000007c T IrqDisable
+000000b0 T IrqEnable
+00000000 T XsrInt
+00000000 D gbXsrTaskSwitchNeeded
+000000b0 C tIntHandlers
+         U vTaskSwitchContext

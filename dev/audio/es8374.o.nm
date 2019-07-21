@@ -1,0 +1,14 @@
+         U I2c2_Check
+         U I2c2_Read
+         U I2c2_Write
+         U WaitXms
+00000124 T es8374_control
+00000000 b es8374_info
+0000022c T es8374_init
+00000194 T es8374_r_control
+00000084 t es8374_read_reg
+00000000 r es8374_reg_defaults
+000001bc T es8374_volume_updown
+00000178 T es8374_w_control
+00000000 t es8374_write_reg
+         U printf

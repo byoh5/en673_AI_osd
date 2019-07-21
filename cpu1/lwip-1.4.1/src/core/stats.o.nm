@@ -1,0 +1,12 @@
+00000000 r C.0.10212
+00000044 r C.1.10273
+00000230 C lwip_stats
+         U memcpy
+         U printf
+0000048c T stats_display
+00000178 T stats_display_igmp
+000002bc T stats_display_mem
+0000033c T stats_display_memp
+00000058 T stats_display_proto
+000003ac T stats_display_sys
+00000000 T stats_init

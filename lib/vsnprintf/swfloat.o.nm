@@ -1,0 +1,14 @@
+         U __adddf3
+         U __divdf3
+         U __eqdf2
+         U __fixdfsi
+         U __gtdf2
+         U __ltdf2
+         U __muldf3
+         U __nedf2
+         U __subdf3
+00000204 t enx_cvt
+000005f8 T flt
+         U memcpy
+00000000 t modf
+         U strlen

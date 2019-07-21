@@ -1,0 +1,10 @@
+00000094 T do_netifapi_netif_add
+00000000 T do_netifapi_netif_common
+00000054 T do_netifapi_netif_set_addr
+         U netif_add
+         U netif_set_addr
+000000f0 T netifapi_netif_add
+00000180 T netifapi_netif_common
+00000140 T netifapi_netif_set_addr
+         U sys_sem_signal
+         U tcpip_netifapi

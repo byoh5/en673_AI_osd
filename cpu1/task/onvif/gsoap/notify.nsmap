@@ -1,0 +1,37 @@
+
+#include "soapH.h"
+SOAP_NMAC struct Namespace notify_namespaces[] =
+{
+	{"env", "http://www.w3.org/2003/05/soap-envelope", "http://www.w3.org/2003/05/soap-envelope", NULL},
+	{"soapenc", "http://www.w3.org/2003/05/soap-encoding", "http://www.w3.org/2003/05/soap-encoding", NULL},	
+	{"xsi", "http://www.w3.org/2001/XMLSchema-instance", "http://www.w3.org/*/XMLSchema-instance", NULL},
+	{"xs", "http://www.w3.org/2001/XMLSchema", "http://www.w3.org/*/XMLSchema", NULL},	
+	{"tt", "http://www.onvif.org/ver10/schema", NULL, NULL},
+	{"tds", "http://www.onvif.org/ver10/device/wsdl", NULL, NULL},	
+	{"trt", "http://www.onvif.org/ver10/media/wsdl", NULL, NULL},
+	{"timg", "http://www.onvif.org/ver20/imaging/wsdl", NULL, NULL},
+	{"tev", "http://www.onvif.org/ver10/events/wsdl", NULL, NULL},
+	{"tan", "http://www.onvif.org/ver20/analytics/wsdl", NULL, NULL},
+	{"ter", "http://www.onvif.org/ver10/error" , NULL, NULL},
+	{"dn", "http://www.onvif.org/ver10/network/wsdl", NULL, NULL},
+	{"tns1", "http://www.onvif.org/ver10/topics", NULL, NULL},
+	{"tmd", "http://www.onvif.org/ver10/deviceIO/wsdl", NULL, NULL},
+	{"wsdl", "http://schemas.xmlsoap.org/wsdl", NULL, NULL},
+	{"wsoap12", "http://schemas.xmlsoap.org/wsdl/soap12", NULL, NULL},
+	{"http", "http://schemas.xmlsoap.org/wsdl/http", NULL, NULL},
+	{"wsdd", "http://schemas.xmlsoap.org/ws/2005/04/discovery", NULL, NULL},
+	{"wsa", "http://www.w3.org/2005/08/addressing", NULL, NULL},
+	{"wsadis", "http://schemas.xmlsoap.org/ws/2004/08/addressing", NULL, NULL},	
+	{"wsnt", "http://docs.oasis-open.org/wsn/b-2", NULL, NULL},
+	{"wsrf-bf", "http://docs.oasis-open.org/wsrf/bf-2", NULL, NULL},
+	{"wstop", "http://docs.oasis-open.org/wsn/t-1", NULL, NULL},
+	{"wsntw", "http://docs.oasis-open.org/wsn/bw-2", NULL, NULL},
+	{"wsrf-rw", "http://docs.oasis-open.org/wsrf/rw-2", NULL, NULL},
+	{"wsaw", "http://www.w3.org/2006/05/addressing/wsdl", NULL, NULL},
+	{"wsrf-r", "http://docs.oasis-open.org/wsrf/r-2", NULL, NULL},
+	{"trc", "http://www.onvif.org/ver10/recording/wsdl", NULL, NULL},
+	{"trp", "http://www.onvif.org/ver10/replay/wsdl", NULL, NULL},
+	{NULL, NULL, NULL, NULL}
+};
+
+

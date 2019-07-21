@@ -1,0 +1,970 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title></title>
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<script type="text/javascript">
+<!--
+var nCBR_h264_sw;
+var nCBR_h264_2_sw;
+var nCBR_jpeg_sw;
+
+var MAX25fps = ["25fps","5fps","1fps"];
+var MAX30fps = ["30fps","15fps","10fps","6fps","5fps","3fps","2fps","1fps"];
+var MAX50fps = ["50fps","25fps","10fps","5fps","2fps","1fps"];
+var MAX60fps = ["60fps","30fps","20fps","15fps","12fps","10fps","6fps","5fps","4fps","3fps","2fps","1fps"];
+
+var ResolText = ["1920x1080","1280x720","800x600","704x480","704x400","640x480","640x360","320x240"];
+
+function SetFormDefaults()
+{
+//<!--#isp_outs-->
+
+//<!--#vi_info-->
+
+//<!--#vi_video-->
+
+	SetFPS();
+
+	if((HWDS0 == 0 && HWDS1 == 1) || (HWDS0 == 1 && HWDS1 == 0))
+	{	// H.264 1ch, 2ch ds
+		var tg = document.getElementById("v_v_jr");
+		tg.disabled = true;
+	}
+	else if((HWDS0 == 0 && HWDS1 == 2) || (HWDS0 == 2 && HWDS1 == 0))
+	{	// H.264 1ch, JPEG ds
+		var tg = document.getElementById("v_v_h2r");
+		tg.disabled = true;
+	}
+	else if((HWDS0 == 1 && HWDS1 == 2) || (HWDS0 == 2 && HWDS1 == 1))
+	{	// H.264 2ch, JPEG ds
+		var tg = document.getElementById("v_v_hr");
+		tg.disabled = true;
+	}
+
+	if(Hresolution > -1)
+	{
+		Hresolution -= H1RMax;
+		for(i=H1RMax ; i<=MAXTOTAL ; i++){
+			var targetObjH = document.getElementById("v_v_hr");
+			var optionH = document.createElement("option");
+			optionH.value = i;
+			optionH.text = ResolText[i];
+			targetObjH.options.add(optionH, i);	
+		}
+	}
+	if(H2resolution > -1)
+	{
+		H2resolution -= H2RMax;
+		for(i=H2RMax ; i<=MAXTOTAL ; i++){
+			var targetObjH = document.getElementById("v_v_h2r");
+			var optionH = document.createElement("option");
+			optionH.value = i;
+			optionH.text = ResolText[i];
+			targetObjH.options.add(optionH, i);	
+		}
+	}
+	if(Jresolution > -1)
+	{
+		Jresolution -= JRMax;
+		for(i=JRMax ; i<=MAXTOTAL ; i++){
+			var targetObjH = document.getElementById("v_v_jr");
+			var optionH = document.createElement("option");
+			optionH.value = i;
+			optionH.text = ResolText[i];
+			targetObjH.options.add(optionH, i);	
+		}
+	}
+
+	document.getElementById("v_v_sname").innerHTML = SensorName;
+	document.getElementById("v_v_sres").innerHTML = SensorWSize + " X " + SensorHSize;
+	document.getElementById("v_v_sfps").innerHTML = SensorMAXfps + "FPS";
+	var strOutMode = "";
+	switch(OUTPUT_RATE)
+	{
+		case 0:
+			switch(OUTPUT_MODE)
+			{
+				case 0: strOutMode = "25FPS Normal"; break;
+				case 1: strOutMode = "12FPS WDR"; break;
+				case 2: strOutMode = "25FPS DNR"; break;
+				case 3: strOutMode = "50FPS Normal"; break;
+				case 4: strOutMode = "25FPS WDR"; break;
+				case 5: strOutMode = "50FPS DNR"; break;
+			}
+			break;
+		case 1:
+			switch(OUTPUT_MODE)
+			{
+				case 0: strOutMode = "30FPS Normal"; break;
+				case 1: strOutMode = "15FPS WDR"; break;
+				case 2: strOutMode = "30FPS DNR"; break;
+				case 3: strOutMode = "60FPS Normal"; break;
+				case 4: strOutMode = "30FPS WDR"; break;
+				case 5: strOutMode = "60FPS DNR"; break;
+			}
+			break;
+
+	}
+	document.getElementById("v_v_outm").innerHTML = strOutMode;
+
+	document.getElementById("v_ihqn1").innerHTML = HqualityMIN;
+	document.getElementById("v_ihqx1").innerHTML = HqualityMAX;
+	document.getElementById("v_ihqn2").innerHTML = HqualityMIN;
+	document.getElementById("v_ihqx2").innerHTML = HqualityMAX;
+	document.getElementById("v_ihin1").innerHTML = HidrframeMIN;
+	document.getElementById("v_ihix1").innerHTML = HidrframeMAX;
+	document.getElementById("v_ihin2").innerHTML = HidrframeMIN;
+	document.getElementById("v_ihix2").innerHTML = HidrframeMAX;
+	document.getElementById("v_ijqn").innerHTML = JqualityMIN;
+	document.getElementById("v_ijqx").innerHTML = JqualityMAX;
+
+	document.form.n_r_port.value = rtspport;
+	
+	if(Jresolution > -1)
+	{
+		document.form.v_v_jr.selectedIndex = Jresolution;
+	}
+	else
+	{
+		var tg = document.getElementById("jpeg_res");
+		tg.style.display = "none";
+		tg.disabled = true;
+	}
+	
+	if(Jquality > -1)
+	{
+		document.form.v_v_jq.value = Jquality;
+	}
+	else
+	{
+		var tg = document.getElementById("jpeg_q");
+		tg.style.display = "none";
+		tg.disabled = true;
+	}
+	
+	if(Jfps > -1)
+	{
+		document.form.v_v_jf.selectedIndex = Jfps;
+	}
+	else
+	{
+		var tg = document.getElementById("jpeg_fps");
+		tg.style.display = "none";
+		tg.disabled = true;
+	}
+
+	if(Jresolution < 0 && Jquality < 0 && Jfps < 0)
+	{
+		var tg = document.getElementById("jpeg_line");
+		tg.style.display = "none";
+		tg.disabled = true;
+	}
+
+	if(Hprofile > -1)
+	{
+		document.form.v_v_hp.selectedIndex = Hprofile;
+	}
+	else
+	{
+		var tg = document.getElementById("h264_1_pro");
+		tg.style.display = "none";
+		tg.disabled = true;
+	}
+
+	if(Hresolution > -1)
+	{
+		document.form.v_v_hr.selectedIndex = Hresolution;
+	}
+	else
+	{
+		var tg = document.getElementById("h264_1_res");
+		tg.style.display = "none";
+		tg.disabled = true;
+	}
+
+	if(Hidrframe > -1)
+	{
+		document.form.v_v_hi.value = Hidrframe;
+	}
+	else
+	{
+		var tg = document.getElementById("h264_1_idr");
+		tg.style.display = "none";
+		tg.disabled = true;
+	}
+
+	if(Hquality > -1)
+	{
+		document.form.v_v_hq.value = Hquality;
+	}
+	else
+	{
+		var tg = document.getElementById("h264_1_q");
+		tg.style.display = "none";
+		tg.disabled = true;
+	}
+
+	if(Hfps > -1)
+	{
+		document.form.v_v_hf.selectedIndex = Hfps;
+	}
+	else
+	{
+		var tg = document.getElementById("h264_1_fps");
+		tg.style.display = "none";
+		tg.disabled = true;
+	}
+
+	if(Hprofile < 0 && Hresolution < 0 && Hidrframe < 0 && Hquality < 0 && Hfps < 0)
+	{
+		var tg = document.getElementById("h264_1_line");
+		tg.style.display = "none";
+		tg.disabled = true;
+	}
+
+	if(H2profile > -1)
+	{
+		document.form.v_v_h2p.selectedIndex = H2profile;
+	}
+	else
+	{
+		var tg = document.getElementById("h264_2_pro");
+		tg.style.display = "none";
+		tg.disabled = true;
+	}
+
+	if(H2resolution > -1)
+	{
+		document.form.v_v_h2r.selectedIndex = H2resolution;
+	}
+	else
+	{
+		var tg = document.getElementById("h264_2_res");
+		tg.style.display = "none";
+		tg.disabled = true;
+	}
+
+	if(H2idrframe > -1)
+	{
+		document.form.v_v_h2i.value = H2idrframe;
+	}
+	else
+	{
+		var tg = document.getElementById("h264_2_q");
+		tg.style.display = "none";
+		tg.disabled = true;
+	}
+
+	if(H2quality > -1)
+	{
+		document.form.v_v_h2q.value = H2quality;
+	}
+	else
+	{
+		var tg = document.getElementById("h264_2_idr");
+		tg.style.display = "none";
+		tg.disabled = true;
+	}
+
+	if(H2fps > -1)
+	{
+		document.form.v_v_h2f.selectedIndex = H2fps;
+	}
+	else
+	{
+		var tg = document.getElementById("h264_2_fps");
+		tg.style.display = "none";
+		tg.disabled = true;
+	}
+
+	if(H2profile < 0 && H2resolution < 0 && H2idrframe < 0 && H2quality < 0 && H2fps < 0)
+	{
+		var tg = document.getElementById("h264_2_line");
+		tg.style.display = "none";
+		tg.disabled = true;
+	}
+
+	// CBR Code Start ==============
+
+	nCBR_jpeg_sw = Jbrmode;
+	nCBR_h264_sw = Hbrmode;
+	nCBR_h264_2_sw = H2brmode;
+
+	// JPEG CBR
+	if(nCBR_jpeg_sw > -1)
+	{
+		document.form.v_v_jbm[nCBR_jpeg_sw].checked = true;
+		document.form.v_v_jbr.selectedIndex = Jbrate;
+		SetJPEGBREnabled(nCBR_jpeg_sw);
+//		SetJPEGResolutionFPS();
+	}
+	else
+	{
+		var tgCBRc = document.getElementById("cbr_jpeg_c");
+		var tgCBRcr = document.getElementById("cbr_jpeg_cr");
+		tgCBRc.style.display = "none";
+		tgCBRcr.style.display = "none";
+		tgCBRc.disabled = true;
+		tgCBRcr.disabled = true;
+	}
+	
+	// H264 CBR
+	if(nCBR_h264_sw > -1)
+	{
+		document.form.v_v_hbm[nCBR_h264_sw].checked = true;
+		SetH264BREnabled(nCBR_h264_sw, 1);
+//		SetH264ResolutionBitrate(1);
+		document.form.v_v_hbr.selectedIndex = Hbrate;
+	}
+	else
+	{
+		var tgCBRc = document.getElementById("cbr_h264_c");
+		var tgCBRcr = document.getElementById("cbr_h264_cr");
+		tgCBRc.style.display = "none";
+		tgCBRcr.style.display = "none";
+		tgCBRc.disabled = true;
+		tgCBRcr.disabled = true;
+	}
+
+	// H264 2CH CBR
+	if(nCBR_h264_2_sw > -1)
+	{
+		document.form.v_v_h2bm[nCBR_h264_2_sw].checked = true;
+		SetH264BREnabled(nCBR_h264_2_sw, 2);
+//		SetH264ResolutionBitrate(2);
+		document.form.v_v_h2br.selectedIndex = H2brate;
+	}
+	else
+	{
+		var tgCBRc = document.getElementById("cbr_h264_c2");
+		var tgCBRcr = document.getElementById("cbr_h264_c2r");
+		tgCBRc.style.display = "none";
+		tgCBRcr.style.display = "none";
+		tgCBRc.disabled = true;
+		tgCBRcr.disabled = true;
+	}
+
+	// CBR Code End ================
+}
+
+function SetJPEGBREnabled(idx)
+{
+	switch(idx)
+	{
+		case 0:	// OFF
+			document.form.v_v_jq.disabled = false;
+			document.form.v_v_jbr.disabled = true;
+			break;
+		case 1:	// VBR
+			document.form.v_v_jq.disabled = false;
+			document.form.v_v_jbr.disabled = false;
+			break;
+		case 2:	// CBR
+			document.form.v_v_jq.disabled = true;
+			document.form.v_v_jbr.disabled = false;
+			break;
+	}
+}
+
+function SetH264BREnabled(idx, ch)
+{
+	if(ch == 1)
+	{
+		switch(idx)
+		{
+			case 0:	// OFF
+				document.form.v_v_hq.disabled = false;
+				document.form.v_v_hbr.disabled = true;
+				break;
+			case 1:	// VBR
+				document.form.v_v_hq.disabled = false;
+				document.form.v_v_hbr.disabled = false;
+				break;
+			case 2:	// CBR
+				document.form.v_v_hq.disabled = true;
+				document.form.v_v_hbr.disabled = false;
+				break;
+			case 3:	// CVBR
+				document.form.v_v_hq.disabled = true;
+				document.form.v_v_hbr.disabled = false;
+				break;
+		}
+	}
+
+	if(ch == 2)
+	{
+		switch(idx)
+		{
+			case 0:	// OFF
+				document.form.v_v_h2q.disabled = false;
+				document.form.v_v_h2br.disabled = true;
+				break;
+			case 1:	// VBR
+				document.form.v_v_h2q.disabled = false;
+				document.form.v_v_h2br.disabled = false;
+				break;
+			case 2:	// CBR
+				document.form.v_v_h2q.disabled = true;
+				document.form.v_v_h2br.disabled = false;
+				break;
+			case 3:	// CVBR
+				document.form.v_v_h2q.disabled = true;
+				document.form.v_v_h2br.disabled = false;
+				break;
+		}
+	}
+}
+
+function SetH264ResolutionBitrate(ch)
+{
+	if(nCBR_h264_sw > -1)
+	{
+		if(ch == 1){
+			var targetObjCBR = document.getElementById("v_v_hbr");
+			var optionCBR = new Array(23);
+			var flag1080 = 0;
+
+			oldsel = targetObjCBR.selectedIndex;
+
+			if(SensorHSize >= 1080)
+				flag1080 = 1;
+
+			for(i=targetObjCBR.options.length;i>=0;i--){
+				targetObjCBR.options.remove(i);
+			}
+			for(i = 1;i <= 23;i++){
+				if(i<=20){
+					optionCBR[i] = document.createElement("option");
+					optionCBR[i].value = "hC"+(21-i)+"m";
+					optionCBR[i].text = (21-i)+"Mbit";
+				}else{
+					optionCBR[i] = document.createElement("option");
+					optionCBR[i].value = "hC"+(1024>>(i-20))+"k";
+					optionCBR[i].text = (1024>>(i-20))+"Kbit";
+				}		
+			}
+
+			if((flag1080 == 1) && document.form.v_v_hr[0].selected){	//1920*1080
+				for(i = 1;i <= 20;i++){
+					targetObjCBR.options.add(optionCBR[i], i);
+				}
+				if(oldsel>=20)
+					oldsel = 19;
+			}
+			else if(document.form.v_v_hr[0 + flag1080].selected||document.form.v_v_hr[1 + flag1080].selected){	//1280*720, 800*600
+				for(i = 1;i <= 21;i++){
+					targetObjCBR.options.add(optionCBR[i], i);
+				}
+				if(oldsel>=21)
+					oldsel = 20;
+			}
+			else if(document.form.v_v_hr[2 + flag1080].selected){	//640*480
+				for(i = 1;i <= 22;i++){
+					targetObjCBR.options.add(optionCBR[i], i);
+				}
+				if(oldsel>=22)
+					oldsel = 21;
+			}
+			else if(document.form.v_v_hr[3 + flag1080].selected){	//320*240
+				for(i = 1;i <= 23;i++){
+					targetObjCBR.options.add(optionCBR[i], i);
+				}
+			}
+			targetObjCBR.selectedIndex = oldsel;
+		}
+	}
+
+	if(nCBR_h264_2_sw > -1){
+		if(ch == 2){
+			var targetObjCBR = document.getElementById("v_v_h2br");
+			var optionCBR = new Array(23);
+			var flag1080 = 0;
+	
+			oldsel = targetObjCBR.selectedIndex;
+
+			if(SensorHSize >= 1080)
+				flag1080 = 1;
+	
+			for(i=targetObjCBR.options.length;i>=0;i--){
+				targetObjCBR.options.remove(i);
+			}
+			for(i = 1;i <= 23;i++){
+				if(i<=20){
+					optionCBR[i] = document.createElement("option");
+					optionCBR[i].value = "hC"+(21-i)+"m";
+					optionCBR[i].text = (21-i)+"Mbit";
+				}else{
+					optionCBR[i] = document.createElement("option");
+					optionCBR[i].value = "hC"+(1024>>(i-20))+"k";
+					optionCBR[i].text = (1024>>(i-20))+"Kbit";
+				}		
+			}
+	
+			if((flag1080 == 1) && document.form.v_v_h2r[0].selected){	//1920*1080
+				for(i = 1;i <= 20;i++){
+					targetObjCBR.options.add(optionCBR[i], i);
+				}
+				if(oldsel>=20)
+					oldsel = 19;
+			}
+			else if(document.form.v_v_h2r[0 + flag1080].selected||document.form.v_v_h2r[1 + flag1080].selected){	//1280*720, 800*600
+				for(i = 1;i <= 21;i++){
+					targetObjCBR.options.add(optionCBR[i], i);
+				}
+				if(oldsel>=21)
+					oldsel = 20;
+			}
+			else if(document.form.v_v_h2r[2 + flag1080].selected){	//640*480
+				for(i = 1;i <= 22;i++){
+					targetObjCBR.options.add(optionCBR[i], i);
+				}
+				if(oldsel>=22)
+					oldsel = 21;
+			}
+			else if(document.form.v_v_h2r[3 + flag1080].selected){	//320*240
+				for(i = 1;i <= 23;i++){
+					targetObjCBR.options.add(optionCBR[i], i);
+				}
+			}
+			targetObjCBR.selectedIndex = oldsel;
+		}
+	}
+}
+
+
+function SetFPSproc(ObjList)
+{
+	for(i=ObjList.options.length;i>=0;i--){
+			ObjList.options.remove(i);
+		}
+		var optionFPSCNT = 0;
+		var optionFPSName;
+		switch(SensorMAXfps)
+		{
+			case 25:
+				optionFPSName = MAX25fps;
+				optionFPSCNT = MAX25fps.length;
+				break;
+			case 50:
+				optionFPSName = MAX50fps;
+				optionFPSCNT = MAX50fps.length;
+				break;
+			case 30:
+				optionFPSName = MAX30fps;
+				optionFPSCNT = MAX30fps.length;
+				break;
+			case 60:
+				optionFPSName = MAX60fps;
+				optionFPSCNT = MAX60fps.length;
+				break;
+		}
+		var optionFPS = new Array(optionFPSCNT);
+
+		for(i=0;i<optionFPSCNT;i++)
+		{
+			optionFPS[i] = document.createElement("option");
+			optionFPS[i].value = i;
+			optionFPS[i].text = optionFPSName[i];
+			
+			ObjList.options.add(optionFPS[i], i);
+		}
+}
+
+function SetFPS()
+{
+	var targetObjFPS1 = document.getElementById("v_v_hf");
+	SetFPSproc(targetObjFPS1);
+		
+	if(H2resolution > -1)
+	{
+		var targetObjFPS2 = document.getElementById("v_v_h2f");
+		SetFPSproc(targetObjFPS2);
+	}
+	
+	if(Jresolution > -1)
+	{
+		var targetObjFPS3 = document.getElementById("v_v_jf");
+		SetFPSproc(targetObjFPS3);
+	}
+}
+
+function SetJPEGResolutionFPS()
+{
+	if(nCBR_jpeg_sw > -1)
+	{
+		var targetObjFPS = document.getElementById("v_v_jf");
+		var flag1080 = 0;
+
+		if(SensorHSize >= 1080)
+			flag1080 = 1;
+		//document.form.v_v_hi.value = flag1080;
+
+		for(i = targetObjFPS.options.length;i >= 0;i--){	
+			targetObjFPS.options.remove(i);
+		}
+
+		var optionFPSCNT = 0;
+		var optionFPSName;
+		switch(SensorMAXfps)
+		{
+			case 25:
+				optionFPSName = MAX25fps;
+				optionFPSCNT = MAX25fps.length;
+				break;
+			case 50:
+				optionFPSName = MAX50fps;
+				optionFPSCNT = MAX50fps.length;
+				break;
+			case 30:
+				optionFPSName = MAX30fps;
+				optionFPSCNT = MAX30fps.length;
+				break;
+			case 60:
+				optionFPSName = MAX60fps;
+				optionFPSCNT = MAX60fps.length;
+				break;
+		}
+		var optionFPS = new Array(optionFPSCNT);
+
+		for(i=0;i<optionFPSCNT;i++)
+		{
+			optionFPS[i] = document.createElement("option");
+			optionFPS[i].value = i;
+			optionFPS[i].text = optionFPSName[i];
+		}
+
+		for(i = 0;i<=14;i++){
+			if((flag1080 == 1) && document.form.v_v_jr[0].selected){	//selected 1080p
+				if((i<=3) && (document.form.v_v_jbr[i].selected)){
+					for(j = 0;j <optionFPSCNT;j++){
+						targetObjFPS.options.add(optionFPS[j], j);
+					}
+				}else if((i<=5) && (document.form.v_v_jbr[i].selected)){
+					for(j = 1;j <optionFPSCNT;j++){
+						targetObjFPS.options.add(optionFPS[j], j);
+					}
+				}else if((i<=8) && (document.form.v_v_jbr[i].selected)){
+					for(j = 2;j <optionFPSCNT;j++){
+						targetObjFPS.options.add(optionFPS[j], j);
+					}
+				}else if((i<=11) && (document.form.v_v_jbr[i].selected)){
+					for(j = 3;j <optionFPSCNT;j++){
+						targetObjFPS.options.add(optionFPS[j], j);
+					}
+				}else if((i<=13) && (document.form.v_v_jbr[i].selected)){
+					for(j = 5;j <optionFPSCNT;j++){
+						targetObjFPS.options.add(optionFPS[j], j);
+					}
+				}else if((i==14) && (document.form.v_v_jbr[i].selected)){
+					for(j = 6;j <optionFPSCNT;j++){
+						targetObjFPS.options.add(optionFPS[j], j);
+					}
+				}
+			}else if(document.form.v_v_jr[0 + flag1080].selected){	//1280x720
+				if((i<=4) && (document.form.v_v_jbr[i].selected)){
+					for(j = 0;j <optionFPSCNT;j++){
+						targetObjFPS.options.add(optionFPS[j], j);
+					}
+				}else if((i<=10) && (document.form.v_v_jbr[i].selected)){
+					for(j = 1;j <optionFPSCNT;j++){
+						targetObjFPS.options.add(optionFPS[j], j);
+					}
+				}else if((i==11) && (document.form.v_v_jbr[i].selected)){
+					for(j = 2;j <optionFPSCNT;j++){
+						targetObjFPS.options.add(optionFPS[j], j);
+					}
+				}else if((i<=13) && (document.form.v_v_jbr[i].selected)){
+					for(j = 3;j <optionFPSCNT;j++){
+						targetObjFPS.options.add(optionFPS[j], j);
+					}
+				}
+				else if((i==14) && (document.form.v_v_jbr[i].selected)){
+					for(j = 6;j <optionFPSCNT;j++){
+						targetObjFPS.options.add(optionFPS[j], j);
+					}
+				}
+			}else if(document.form.v_v_jr[1 + flag1080].selected){	//800x600
+				if((i<=9) && (document.form.v_v_jbr[i].selected)){
+					for(j = 0;j <optionFPSCNT;j++){
+						targetObjFPS.options.add(optionFPS[j], j);
+					}
+				}else if((i<=12) && (document.form.v_v_jbr[i].selected)){
+					for(j = 1;j <optionFPSCNT;j++){
+						targetObjFPS.options.add(optionFPS[j], j);
+					}
+				}else if((i==13) && (document.form.v_v_jbr[i].selected)){
+					for(j = 2;j <optionFPSCNT;j++){
+						targetObjFPS.options.add(optionFPS[j], j);
+					}
+				}
+				else if((i==14) && (document.form.v_v_jbr[i].selected)){
+					for(j = 3;j <optionFPSCNT;j++){
+						targetObjFPS.options.add(optionFPS[j], j);
+					}
+				}
+			}else if(document.form.v_v_jr[2 + flag1080].selected){	//640x480
+				if((i<=10) && (document.form.v_v_jbr[i].selected)){
+					for(j = 0;j <optionFPSCNT;j++){
+						targetObjFPS.options.add(optionFPS[j], j);
+					}
+				}else if((i<=12) && (document.form.v_v_jbr[i].selected)){
+					for(j = 1;j <optionFPSCNT;j++){
+						targetObjFPS.options.add(optionFPS[j], j);
+					}
+				}else if((i==13) && (document.form.v_v_jbr[i].selected)){
+					for(j = 2;j <optionFPSCNT;j++){
+						targetObjFPS.options.add(optionFPS[j], j);
+					}
+				}
+				else if((i==14) && (document.form.v_v_jbr[i].selected)){
+					for(j = 3;j <optionFPSCNT;j++){
+						targetObjFPS.options.add(optionFPS[j], j);
+					}
+				}
+			}else if(document.form.v_v_jr[3 + flag1080].selected){	//320x240
+				if((i<=14) && (document.form.v_v_jbr[i].selected)){
+					for(j = 0;j <optionFPSCNT;j++){
+						targetObjFPS.options.add(optionFPS[j], j);
+					}
+				}
+			}
+		}
+	}
+}
+
+//-->
+</script>
+
+</head>
+<body onload="SetFormDefaults();">
+<form id="form" name="form" method="get" action="appquery.cgi">
+	<div class="sub-title">
+		<input class="btn btn-default pull-right" name="btOK" type="submit" value="submit">
+		<h3>Video Infomation</h3>
+	</div>
+	<hr>
+	<div>
+		<label class="sub-label">Sensor Name</label>
+		<label id="v_v_sname"></label>
+	</div>
+	<div>
+		<label class="sub-label">Max Resolution</label>
+		<label id="v_v_sres"></label>
+	</div>
+	<div>
+		<label class="sub-label">Max FPS</label>
+		<label id="v_v_sfps"></label>
+	</div>
+	<div>
+		<label class="sub-label">Output Mode</label>
+		<label id="v_v_outm"></label>
+	</div>
+	<hr>
+	<div>
+		<label class="sub-label">RTSP Port</label>
+		<input name="n_r_port" type="text"> [1~65535]
+	</div>
+	<hr id="h264_1_line">
+	<div id="h264_1_pro">
+		<label class="sub-label">H.264 Profiles</label>
+		<select id="v_v_hp" name="v_v_hp">
+			<option value=0>Baseline</option>
+			<option value=1>Main</option>
+		</select>
+	</div>
+	<div id="h264_1_res">
+		<label class="sub-label">H264 Resolution</label>
+		<select id="v_v_hr" name="v_v_hr"><!--onchange="SetH264ResolutionBitrate(1)">-->
+		</select>
+	</div>
+	<div id="h264_1_q">
+		<label class="sub-label">H.264 Quality</label>
+		<input name="v_v_hq" type="text"> [<label id="v_ihqn1"></label>~<label id="v_ihqx1"></label>]
+	</div>
+	<div id="h264_1_idr">
+		<label class="sub-label">H.264 GOP(IDR)</label>
+		<input name="v_v_hi" type="text"> [<label id="v_ihin1"></label>~<label id="v_ihix1"></label>]
+	</div>
+	<div id="h264_1_fps">
+		<label class="sub-label">H.264 FPS</label>
+		<select id="v_v_hf" name="v_v_hf">
+			<option value=0>30fps</option>
+			<option value=1>15fps</option>
+			<option value=2>10fps</option>
+			<option value=3>6fps</option>
+			<option value=4>5fps</option>
+			<option value=5>3fps</option>
+			<option value=6>2fps</option>
+			<option value=7>1fps</option>
+		</select>
+	</div>
+	<div id="cbr_h264_c">
+		<label class="sub-label">Bitrate Control</label>
+		<label class="radio-inline"><input type="radio" name="v_v_hbm" value=0 onclick="SetH264BREnabled(0, 1)">OFF</label>
+		<label class="radio-inline"><input type="radio" name="v_v_hbm" value=1 onclick="SetH264BREnabled(1, 1)">VBR</label>
+		<label class="radio-inline"><input type="radio" name="v_v_hbm" value=2 onclick="SetH264BREnabled(2, 1)">CBR</label>
+		<label class="radio-inline"><input type="radio" name="v_v_hbm" value=3 onclick="SetH264BREnabled(3, 1)">CVBR(EN673: baseline only, EN673M: baseline, main)</label>
+	</div>
+	<div id="cbr_h264_cr">
+		<label class="sub-label">H.264 Bitrate</label>
+		<select id="v_v_hbr" name="v_v_hbr">
+			<option value="hC20m">20Mbit</option>
+			<option value="hC19m">19Mbit</option>
+			<option value="hC18m">18Mbit</option>
+			<option value="hC17m">17Mbit</option>
+			<option value="hC16m">16Mbit</option>
+			<option value="hC15m">15Mbit</option>
+			<option value="hC14m">14Mbit</option>
+			<option value="hC13m">13Mbit</option>
+			<option value="hC12m">12Mbit</option>
+			<option value="hC11m">11Mbit</option>
+			<option value="hC10m">10Mbit</option>
+			<option value="hC9m">9Mbit</option>
+			<option value="hC8m">8Mbit</option>
+			<option value="hC7m">7Mbit</option>
+			<option value="hC6m">6Mbit</option>
+			<option value="hC5m">5Mbit</option>
+			<option value="hC4m">4Mbit</option>
+			<option value="hC3m">3Mbit</option>
+			<option value="hC2m">2Mbit</option>
+			<option value="hC1m">1Mbit</option>
+			<option value="hC512k">512Kbit</option>
+			<option value="hC256k">256Kbit</option>
+			<option value="hC128k">128Kbit</option>
+		</select>
+	</div>
+	<hr id="h264_2_line">
+	<div id="h264_2_pro">
+		<label class="sub-label">H.264 2ch Profiles</label>
+		<select id="v_v_h2p" name="v_v_h2p">
+			<option value=0>Baseline</option>
+			<option value=1>Main</option>
+		</select>
+	</div>
+	<div id="h264_2_res">
+		<label class="sub-label">H.264 2ch Resolution</label>
+		<select id="v_v_h2r" name="v_v_h2r"><!--onchange="SetH264ResolutionBitrate(2)">-->
+		</select>
+	</div>
+	<div id="h264_2_q">
+		<label class="sub-label">H.264 2ch Quality</label>
+		<input name="v_v_h2q" type="text"> [<label id="v_ihqn2"></label>~<label id="v_ihqx2"></label>]
+	</div>
+	<div id="h264_2_idr">
+		<label class="sub-label">H.264 2ch GOP(IDR)</label>
+		<input name="v_v_h2i" type="text"> [<label id="v_ihin2"></label>~<label id="v_ihix2"></label>]
+	</div>
+	<div id="h264_2_fps">
+		<label class="sub-label">H.264 2ch FPS</label>
+		<select id="v_v_h2f" name="v_v_h2f">
+			<option value=0>30fps</option>
+			<option value=1>15fps</option>
+			<option value=2>10fps</option>
+			<option value=3>6fps</option>
+			<option value=4>5fps</option>
+			<option value=5>3fps</option>
+			<option value=6>2fps</option>
+			<option value=7>1fps</option>
+		</select>
+	</div>
+	<div id="cbr_h264_c2">
+		<label class="sub-label">Bitrate Control</label>
+		<label class="radio-inline"><input type="radio" name="v_v_h2bm" value=0 onclick="SetH264BREnabled(0, 2)">OFF</label>
+		<label class="radio-inline"><input type="radio" name="v_v_h2bm" value=1 onclick="SetH264BREnabled(1, 2)">VBR</label>
+		<label class="radio-inline"><input type="radio" name="v_v_h2bm" value=2 onclick="SetH264BREnabled(2, 2)">CBR</label>
+		<label class="radio-inline"><input type="radio" name="v_v_h2bm" value=3 onclick="SetH264BREnabled(3, 2)">CVBR(EN673: baseline only, EN673M: baseline, main)</label>
+	</div>
+	<div id="cbr_h264_c2r">
+		<label class="sub-label">H.264 2ch Bitrate</label>
+		<select id="v_v_h2br" name="v_v_h2br">
+			<option value="hC20m">20Mbit</option>
+			<option value="hC19m">19Mbit</option>
+			<option value="hC18m">18Mbit</option>
+			<option value="hC17m">17Mbit</option>
+			<option value="hC16m">16Mbit</option>
+			<option value="hC15m">15Mbit</option>
+			<option value="hC14m">14Mbit</option>
+			<option value="hC13m">13Mbit</option>
+			<option value="hC12m">12Mbit</option>
+			<option value="hC11m">11Mbit</option>
+			<option value="hC10m">10Mbit</option>
+			<option value="hC9m">9Mbit</option>
+			<option value="hC8m">8Mbit</option>
+			<option value="hC7m">7Mbit</option>
+			<option value="hC6m">6Mbit</option>
+			<option value="hC5m">5Mbit</option>
+			<option value="hC4m">4Mbit</option>
+			<option value="hC3m">3Mbit</option>
+			<option value="hC2m">2Mbit</option>
+			<option value="hC1m">1Mbit</option>
+			<option value="hC512k">512Kbit</option>
+			<option value="hC256k">256Kbit</option>
+			<option value="hC128k">128Kbit</option>
+		</select>
+	</div>
+	<hr id="jpeg_line">
+	<div id="jpeg_res">
+		<label class="sub-label">M-JPEG Resolution</label>
+		<select id="v_v_jr" name="v_v_jr"><!--onchange="SetJPEGResolutionFPS()">-->
+		</select>
+	</div>
+	<div id="jpeg_q">
+		<label class="sub-label">M-JPEG Quality</label>
+		<input name="v_v_jq" type="text"> [<label id="v_ijqn"></label>~<label id="v_ijqx"></label>]
+	</div>
+	<div id="jpeg_fps">
+		<label class="sub-label">M-JPEG FPS</label>
+		<select id="v_v_jf" name="v_v_jf">
+			<option value=0>30fps</option>
+			<option value=1>15fps</option>
+			<option value=2>10fps</option>
+			<option value=3>6fps</option>
+			<option value=4>5fps</option>
+			<option value=5>3fps</option>
+			<option value=6>2fps</option>
+			<option value=7>1fps</option>
+		</select>
+	</div>
+	<div id="cbr_jpeg_c">
+		<label class="sub-label">Bitrate Control</label>
+		<label class="radio-inline"><input type="radio" name="v_v_jbm" value=0 onclick="SetJPEGBREnabled(0)">OFF</label>
+		<label class="radio-inline"><input type="radio" name="v_v_jbm" value=1 onclick="SetJPEGBREnabled(1)">VBR</label>
+		<label class="radio-inline"><input type="radio" name="v_v_jbm" value=2 onclick="SetJPEGBREnabled(2)">CBR</label>
+	</div>
+	<div id="cbr_jpeg_cr">
+		<label class="sub-label">M-JPEG Bitrate</label>
+		<select name="v_v_jbr" class="auto-style3"><!--onchange="SetJPEGResolutionFPS()">-->
+			<option value="jC50m">50Mbit</option>
+			<option value="jC45m">45Mbit</option>
+			<option value="jC40m">40Mbit</option>
+			<option value="jC35m">35Mbit</option>
+			<option value="jC30m">30Mbit</option>
+			<option value="jC25m">25Mbit</option>
+			<option value="jC20m">20Mbit</option>
+			<option value="jC19m">19Mbit</option>
+			<option value="jC18m">18Mbit</option>
+			<option value="jC17m">17Mbit</option>
+			<option value="jC16m">16Mbit</option>
+			<option value="jC15m">15Mbit</option>
+			<option value="jC14m">14Mbit</option>
+			<option value="jC13m">13Mbit</option>
+			<option value="jC12m">12Mbit</option>
+			<option value="jC11m">11Mbit</option>
+			<option value="jC10m">10Mbit</option>
+			<option value="jC9m">9Mbit</option>
+			<option value="jC8m">8Mbit</option>
+			<option value="jC7m">7Mbit</option>
+			<option value="jC6m">6Mbit</option>
+			<option value="jC5m">5Mbit</option>
+			<option value="jC4m">4Mbit</option>
+			<option value="jC3m">3Mbit</option>
+			<option value="jC2m">2Mbit</option>
+			<option value="jC1m">1Mbit</option>
+		</select>
+	</div>
+</form>
+</body>
+</html>

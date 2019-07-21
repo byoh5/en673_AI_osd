@@ -1,0 +1,14 @@
+         U I2c2_Check
+         U I2c2_Read
+         U I2c2_Write
+00000000 r __func__.8788
+00000010 r days_in_month
+000003b4 t pcf8563_get_datetime
+0000059c T pcf8563_init
+00000084 t pcf8563_set_datetime
+00000000 t pcf8563_write_reg
+         U printf
+         U rtc_device
+         U rtc_valid_tm
+         U strcpy
+00000000 b voltage_low

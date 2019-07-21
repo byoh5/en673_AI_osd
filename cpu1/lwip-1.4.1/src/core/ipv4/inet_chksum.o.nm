@@ -1,0 +1,6 @@
+000002ec T inet_chksum
+00000310 T inet_chksum_pbuf
+00000000 T inet_chksum_pseudo
+00000138 T inet_chksum_pseudo_partial
+         U my_chksum
+         U printf

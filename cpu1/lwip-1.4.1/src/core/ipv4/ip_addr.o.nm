@@ -1,0 +1,13 @@
+00000000 T ip4_addr_isbroadcast
+00000068 T ip4_addr_netmask_valid
+00000014 R ip_addr_any
+00000018 R ip_addr_broadcast
+00000380 T ipaddr_addr
+000000c0 T ipaddr_aton
+00000494 T ipaddr_ntoa
+00000594 T ipaddr_ntoa32
+000003b0 T ipaddr_ntoa_r
+000004b4 T ipaddr_ntoa_r32
+         U printf
+00000010 b str.9154
+00000000 b str.9179

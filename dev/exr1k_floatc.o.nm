@@ -1,0 +1,6 @@
+00000038 T _fabs
+         U _fadd
+00000058 T _fneg
+00000000 T _frnd
+         U _ftoi
+         U _itof

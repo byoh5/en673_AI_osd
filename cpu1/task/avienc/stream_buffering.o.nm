@@ -1,0 +1,11 @@
+         U memset
+         U pvPortCalloc
+0000031c T sbuf_free
+000002cc T sbuf_freebuffer
+00000114 T sbuf_get
+00000000 T sbuf_init
+00000204 T sbuf_peek
+00000064 T sbuf_put
+         U vPortEnterCritical
+         U vPortExitCritical
+         U vPortFree

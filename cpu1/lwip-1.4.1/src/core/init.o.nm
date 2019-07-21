@@ -1,0 +1,11 @@
+         U dns_init
+         U igmp_init
+00000000 T lwip_init
+         U lwip_socket_init
+         U memp_init
+         U netif_init
+         U stats_init
+         U sys_init
+         U sys_timeouts_init
+         U tcp_init
+         U udp_init

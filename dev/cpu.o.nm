@@ -1,0 +1,6 @@
+0000003c T CpuIdGet
+00000050 T GetKey
+00000078 T ReleaseKey
+000000b8 T WaitXms
+000000a0 T WaitXus
+00000000 t hw_wait_us

@@ -1,0 +1,5 @@
+000003c0 r Tbl
+00000000 T ff_convert
+00000088 T ff_wtoupper
+000001e0 r tbl_lower.1560
+00000000 r tbl_upper.1561
