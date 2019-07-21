@@ -121,7 +121,7 @@ tMonCmd gCmdList[] =
 	{"audio",       UsrAudioCmd,        sAudioCmd       },
 #endif
 	{"isp",			cmd_ispControl,		sIspControl		},
-	{"isposd",		cmd_ispOSDControl,		sIspControl		},
+	{"aiosd",		cmd_ispOSDControl,		sIspControl		},
 #ifdef __HW_OSD__
 	{"osd",         cmd_fontosd,        sFontOSDCmd     },
 #endif
