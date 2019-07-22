@@ -9,7 +9,7 @@
          U EthMulFiltInsert
 00000c14 T IsrEthRx
          U MsgPut_nolock
-00000000 r __func__.11100
+00000000 r __func__.11119
          U dhcp_inform
          U dhcp_release
          U dhcp_start

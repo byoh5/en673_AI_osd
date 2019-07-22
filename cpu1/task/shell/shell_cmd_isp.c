@@ -280,14 +280,38 @@ INT16S cmd_ispOSDControl(INT32S argc, char *argv[])
 		CGI_isp_BYTE_MAX_MIN_(&(gbMnPvcCfg(nNum)->bSizX), argv[5], 60, 0);
 		CGI_isp_BYTE_MAX_MIN_(&(gbMnPvcCfg(nNum)->bSizY) , argv[6], 34, 0);
 	}
-
-		
-		return 0;
+	
+	return 0;
 
 	UNUSED(argc);
 	UNUSED(argv);
 }
 
+INT16S cmd_FontOsdControl(INT32S argc, char *argv[])
+{
+	printf("argc %d\r\n",argc);
+
+	int i=0; 
+	for(i=0;i<argc;i++){
+		printf("%d : %s \r\n",i,argv[i]);
+	}
+	
+	txtosd_info osd_data;
+	strcpy(osd_data.info,argv[1]);		 
+	osd_data.posX = atoi(argv[2]);
+	osd_data.posY = atoi(argv[3]);
+	while(MsgTxtOsdPut( &gptMsgTxtOsd, &osd_data) == DEF_FAIL)
+	vTaskDelay(1);	
+
+	while(MsgPut(&gptMsgCpu1to0, MSG_CMD_TXTOCD, 0) == DEF_FAIL)
+	vTaskDelay(1);
+
+	
+	return 0;
+
+	UNUSED(argc);
+	UNUSED(argv);
+}
 
 
 

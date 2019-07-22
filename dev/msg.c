@@ -31,6 +31,7 @@ SH0SRD volatile cop2cpu_ftpdmb_t ftpd_mb;
 SH0SRD volatile msgq_shell_t gptMsgShell;
 SH0SRD volatile BYTE gbMnParTbl[512];
 
+
 //SH1RAM_BASE======================================================================================
 SH1SRD volatile share_msg_t gptMsgShare;
 SH1SRD volatile isp_msg_t gptMsgISPTbl;
@@ -40,12 +41,14 @@ SH1SRD volatile msgq_net_tx_t gptMsgEthTx;						// (TX) CPU0 only - 1ms 1packet
 #ifndef DEF_BOOT
 #if (RTSPoverHTTP==1)
 SH1SRD volatile msgq_tunnel_t gptMsgTunnel;
+SH1SRD volatile msgq_txtosd_t gptMsgTxtOsd;
 SH1SRD volatile msgq_tunnel_port_t tunnel_port[MSG_TUNNEL_NUM];
 #endif
 #endif
 #ifdef __WIFI__
 SH1SRD volatile msgq_wlif_cmd_t gptMsgWlifCmd;
 SH1SRD volatile msgq_wlif_evt_t gptMsgWlifEvt;
+
 #endif
 SH1SRD volatile BYTE gptMsgSH01[4096];
 SH1SRD volatile BYTE gptMsgSH02[4096];
@@ -97,6 +100,8 @@ void InitShareSram(void)
 
 #if (RTSPoverHTTP==1)
 	gptMsgTunnel.tot_num = MSG_TUNNEL_NUM;
+	gptMsgTxtOsd.tot_num = MSG_TUNNEL_NUM;
+
 #endif
 
 #ifdef __DEVICE_SD__
@@ -558,4 +563,74 @@ BYTE MsgTunnelGet(volatile msgq_tunnel_t *p, void *anArg)
 	return bRes;
 }
 #endif
+
+
+BYTE MsgTxtOsdPut(volatile msgq_txtosd_t *p, void *anArg)
+{
+	UINT bRes = DEF_FAIL;
+
+	
+		if(cQueue_isfull(p) != DEF_OK)
+		{
+#ifdef DEF_CPU1
+			if(xSemaphoreTake(xSemPut, portMAX_DELAY))
+			{
+#else
+			CRITICAL_BEGIN;
+#endif
+
+			DmaMemCpy_isr((BYTE*)&(p->arg[p->tail]), (BYTE*)anArg, sizeof(txtosd_info));
+
+			num_loop(p->tail, p->tot_num);
+
+			bRes = DEF_OK;
+
+#ifdef DEF_CPU1
+			xSemaphoreGive(xSemPut);
+			}
+#else
+		CRITICAL_END;
+#endif
+		}
+		
+
+	return bRes;
+}
+
+BYTE MsgTxtOsdGet(volatile msgq_txtosd_t *p, void *anArg)
+{
+	UINT bRes = DEF_FAIL;
+
+	
+		if(cQueue_isempty(p) != DEF_OK)
+		{
+#ifdef DEF_CPU1
+			if(xSemaphoreTake(xSemGet, portMAX_DELAY))
+			{
+#else
+			CRITICAL_BEGIN;
+#endif
+
+			DmaMemCpy_isr((BYTE*)anArg, (BYTE*)&(p->arg[p->head]), sizeof(txtosd_info));
+			invalidate_dcache_range((uint)anArg, (uint)anArg + sizeof(txtosd_info));
+			//DmaMemSet_isr((BYTE*)&(p->arg[p->head]), 0, sizeof(tunnel_info));
+
+			num_loop(p->head, p->tot_num);
+
+			bRes = DEF_OK;
+
+#ifdef DEF_CPU1
+			xSemaphoreGive(xSemGet);
+			}
+#else
+			CRITICAL_END;
+#endif
+		}
+	
+
+	return bRes;
+}
+
+
+
 #endif	// #ifndef DEF_BOOT

@@ -4,8 +4,8 @@
 000003a0 T UserErase
 000002c4 T UserLoad
 0000010c T UserSave
-0000003c t __fps2idx.10600
-00000000 t __idx2fps.10580
+0000003c t __fps2idx.10619
+00000000 t __idx2fps.10599
 00000568 T fps2ssfps
 00000078 T getDateID
          U gptMsgISPTbl

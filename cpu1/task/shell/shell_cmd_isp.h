@@ -36,6 +36,8 @@
 // Function
 extern INT16S cmd_ispControl(INT32S argc, char *argv[]);
 extern INT16S cmd_ispOSDControl(INT32S argc, char *argv[]);
+extern INT16S cmd_FontOsdControl(INT32S argc, char *argv[]);
+
 
 //extern INT16S cmd_ispControl_menu(INT32S argc, char *argv[]);
 #if (LVDS_MARGIN_TEST==1)

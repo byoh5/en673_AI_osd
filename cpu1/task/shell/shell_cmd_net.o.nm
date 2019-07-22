@@ -1,11 +1,11 @@
-00000008 r C.11.13634
+00000008 r C.11.13656
          U CpuIdGet
          U FtpdStart
          U FtpdStop
          U MsgPut
          U UserSave
 0000091c T UsrFtpdCmd
-00000000 r __func__.11775
+00000000 r __func__.11794
          U atoi
 000003e4 T cmd_dhcp
 00000000 T cmd_ifconfig
@@ -41,7 +41,7 @@
 00000020 D sNetstatCmd
 00000040 D sRtspState
 00000018 D sSntpCmd
-00000048 d send_size.11783
+00000048 d send_size.11802
          U snprintf
          U sntpc_start
          U sntpc_stop
@@ -52,7 +52,7 @@
          U tcp_debug_state_str
          U tcp_listen_pcbs
          U tcp_tw_pcbs
-00000000 b test_pcb.11784
+00000000 b test_pcb.11803
          U udp_bind
          U udp_new
          U udp_pcbs

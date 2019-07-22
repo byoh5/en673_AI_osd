@@ -461,6 +461,22 @@ typedef struct{                                 // msg_tunnel : Main -> Cop
 	tunnel_info arg[MSG_TUNNEL_NUM];            //    "
 } msgq_tunnel_t;                             //    "
 
+
+typedef struct {
+  UINT posX;
+  UINT posY;
+  char info[32];
+} txtosd_info;	// old msg_tunnel_t
+
+typedef struct{                                 // msg_tunnel : Main -> Cop
+	UINT head;                                  //    "
+	UINT tail;                                  //    "
+	UINT tot_num;                               //    "
+	txtosd_info arg[MSG_TUNNEL_NUM];            //    "
+} msgq_txtosd_t;               
+
+
+
 typedef struct {
   UINT valid;  // 0 = empty, 1= vaild
   void *priv; // point to struct tcp_pcb
@@ -523,6 +539,7 @@ enum{
 	MSG_CMD_FTPD_STOR,
 
 	MSG_CMD_RTSPoverHTTP,
+	MSG_CMD_TXTOCD,
 	MSG_CMD_GET_PCB,
 	MSG_CMD_POST_PCB,
 
@@ -619,10 +636,16 @@ extern void xfer_pkt_from_cpu0(void);
 extern int cop2cpu_wlif_getcmd(char *cmd, UINT maxlen);
 #endif
 
+
+
+
+
 #ifndef DEF_BOOT
 #if (RTSPoverHTTP==1)
 extern BYTE MsgTunnelPut(volatile msgq_tunnel_t *p, void *anArg);
 extern BYTE MsgTunnelGet(volatile msgq_tunnel_t *p, void *anArg);
+extern BYTE MsgTxtOsdPut(volatile msgq_txtosd_t *p, void *anArg);
+extern BYTE MsgTxtOsdGet(volatile msgq_txtosd_t *p, void *anArg);
 #endif
 #endif
 
@@ -653,6 +676,7 @@ extern volatile msgq_net_tx_t gptMsgEthTx;
 #ifndef DEF_BOOT
 #if (RTSPoverHTTP==1)
 extern volatile msgq_tunnel_t gptMsgTunnel;
+extern volatile msgq_txtosd_t gptMsgTxtOsd;
 extern volatile msgq_tunnel_port_t tunnel_port[MSG_TUNNEL_NUM];
 #endif
 #endif
@@ -665,5 +689,6 @@ extern volatile BYTE gptMsgSH02[4096];
 extern volatile BYTE gptMsgSH03[4096];
 extern volatile BYTE gptMsgSH04[4096];
 extern volatile debug_msg_t gptMsgDebug;
+
 
 #endif // _MSG_H_

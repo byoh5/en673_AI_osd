@@ -9,8 +9,8 @@
          U Sdio0SetBlockLength
          U Sdio0SetClock
          U Sdio0W
-00000110 r __func__.11068
-00000100 r __func__.11226
+00000110 r __func__.11087
+00000100 r __func__.11245
          U atoi
 00001694 T cmd_sdcd_test
 00000544 T cmd_sdcheck_task_m_read

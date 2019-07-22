@@ -435,7 +435,24 @@ ISRT void RuntimeMsg(void)
 					}
 				}
 				break;
+			case MSG_CMD_TXTOCD:
+				{
+					printf("MSG_CMD_TXTOCD\r\n");
+					txtosd_info arg_txtosd;
+					char buffer[32];
+					int len=0;
+					if (MsgTxtOsdGet(&gptMsgTxtOsd, &arg_txtosd) == DEF_OK) {
+						
+						printf("%s %d %d\r\n",arg_txtosd.info,arg_txtosd.posX,arg_txtosd.posY);
+						len = sprintf(buffer, "%s",arg_txtosd.info);
+						DispStr(buffer, arg_txtosd.posY, arg_txtosd.posX, len);
+						
+					}
+				}
+				break;
 #endif
+		
+
 #ifdef RTMP_SUPPORT
 			case MSG_CMD_RTMP_CONNECT:
 				printf("MSG_CMD_RTMP_CONNECT\r\n");

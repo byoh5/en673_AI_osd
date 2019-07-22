@@ -1,30 +1,33 @@
-00000000 t DmaMemCpy_isr.clone.0
-00000078 T InitMsgOS
-00000344 T MsgGet
-00000220 T MsgPut
-0000012c T MsgPut_nolock
-00000484 T MsgRecGet
-0000067c T MsgTunnelGet
-0000056c T MsgTunnelPut
+00000000 t DmaMemCpy_isr
+00000074 T InitMsgOS
+00000340 T MsgGet
+0000021c T MsgPut
+00000128 T MsgPut_nolock
+00000480 T MsgRecGet
+00000678 T MsgTunnelGet
+00000568 T MsgTunnelPut
+00000864 T MsgTxtOsdGet
+0000077c T MsgTxtOsdPut
 00001c04 D ftpd_mb
 00001e48 D gbMnParTbl
 00001638 D gptMsgCpu0to1
 00001438 D gptMsgCpu1to0
-00004dbc D gptMsgDebug
+00004f58 D gptMsgDebug
 00000254 D gptMsgISPTbl
 00000600 D gptMsgNetworkRX0
 00000d1c D gptMsgNetworkRX1
 00000000 D gptMsgNetworkRXShared
 00001838 D gptMsgRecInfo
-00000dbc D gptMsgSH01
-00001dbc D gptMsgSH02
-00002dbc D gptMsgSH03
-00003dbc D gptMsgSH04
+00000f58 D gptMsgSH01
+00001f58 D gptMsgSH02
+00002f58 D gptMsgSH03
+00003f58 D gptMsgSH04
 00000000 D gptMsgShare
 00001dbc D gptMsgShell
 00000270 D gptMsgTunnel
+00000d44 D gptMsgTxtOsd
          U invalidate_dcache_range
-00000d44 D tunnel_port
+00000ee0 D tunnel_port
          U xQueueCreate
          U xQueueGenericReceive
          U xQueueGenericSend

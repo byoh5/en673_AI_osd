@@ -122,6 +122,7 @@ tMonCmd gCmdList[] =
 #endif
 	{"isp",			cmd_ispControl,		sIspControl		},
 	{"aiosd",		cmd_ispOSDControl,		sIspControl		},
+	{"ftosd",		cmd_FontOsdControl,		sIspControl		},
 #ifdef __HW_OSD__
 	{"osd",         cmd_fontosd,        sFontOSDCmd     },
 #endif

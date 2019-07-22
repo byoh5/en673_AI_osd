@@ -187,47 +187,47 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .reset        00000fa0  04000000  06010000  00002000  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .rodata       0003ad80  08000000  06011000  00004000  2**2
+  1 .rodata       0003ada0  08000000  06011000  00004000  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  2 .text         00065400  0803ad80  0604bd80  0003ed80  2**2
+  2 .text         00065560  0803ada0  0604bda0  0003eda0  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  3 .ispm_text    00003800  04001000  060b1180  000a5000  2**2
+  3 .ispm_text    00003860  04001000  060b1300  000a5000  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  4 .ispm_data    00000e40  04004800  060b4980  000a8800  2**2
+  4 .ispm_data    00000e40  04004860  060b4b60  000a8860  2**2
                   CONTENTS, ALLOC, LOAD, DATA
   5 .sh0sr_data   00002060  f0000000  f0000000  000ac000  2**2
                   ALLOC
-  6 .sh1sr_data   00004e20  f0010000  f0010000  000ac000  2**2
+  6 .sh1sr_data   00004fa0  f0010000  f0010000  000ac000  2**2
                   ALLOC
-  7 .data         000010a0  080a0180  060b57c0  000aa180  2**2
+  7 .data         000010a0  080a0300  060b59a0  000aa300  2**2
                   CONTENTS, ALLOC, LOAD, DATA
   8 .flag_data    00000010  060bfff0  060bfff0  000abff0  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  9 .bss          000985c0  080a1220  060b6860  000ab220  2**2
+  9 .bss          000985c0  080a13a0  060b6a40  000ab3a0  2**2
                   ALLOC
  10 .stb          00000040  0bc00000  0bc00000  000ac000  2**0
                   CONTENTS
  11 .comment      00000051  00000000  00000000  000ac040  2**0
                   CONTENTS, READONLY
- 12 .debug_frame  0000871c  00000000  00000000  000ac094  2**2
+ 12 .debug_frame  00008754  00000000  00000000  000ac094  2**2
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_abbrev 00006234  00000000  00000000  000b47b0  2**0
+ 13 .debug_abbrev 00006234  00000000  00000000  000b47e8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_info   0001e4a0  00000000  00000000  000ba9e4  2**0
+ 14 .debug_info   0001e4a0  00000000  00000000  000baa1c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_line   0000d045  00000000  00000000  000d8e84  2**0
+ 15 .debug_line   0000d045  00000000  00000000  000d8ebc  2**0
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_loc    0000bef0  00000000  00000000  000e5ec9  2**0
+ 16 .debug_loc    0000bef0  00000000  00000000  000e5f01  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_pubnames 00001066  00000000  00000000  000f1db9  2**0
+ 17 .debug_pubnames 00001066  00000000  00000000  000f1df1  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_pubtypes 00002cc3  00000000  00000000  000f2e1f  2**0
+ 18 .debug_pubtypes 00002cc3  00000000  00000000  000f2e57  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .debug_aranges 000009a0  00000000  00000000  000f5ae2  2**0
+ 19 .debug_aranges 000009a0  00000000  00000000  000f5b1a  2**0
                   CONTENTS, READONLY, DEBUGGING
- 20 .debug_str    000023f3  00000000  00000000  000f6482  2**0
+ 20 .debug_str    000023f3  00000000  00000000  000f64ba  2**0
                   CONTENTS, READONLY, DEBUGGING
- 21 .debug_ranges 00000890  00000000  00000000  000f8875  2**0
+ 21 .debug_ranges 00000890  00000000  00000000  000f88ad  2**0
                   CONTENTS, READONLY, DEBUGGING
  
 Generate cpu0.bin: 720896 bytes
