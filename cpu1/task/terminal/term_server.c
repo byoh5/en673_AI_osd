@@ -128,7 +128,7 @@ void TermStart(void *arg)
 
 				do {
 					nbytes = lwip_recv(clientfd, buffer, sizeof(buffer), 0);
-
+					printf("lwip recv - %d)\r\n", nbytes);
 					// 사용자가 Terminal을 강제 종료할 때
 					if (nbytes <= 0) {
 						break;

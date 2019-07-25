@@ -581,7 +581,7 @@ extern BYTE MN_MXSP;
 	#define MN_POS_SIZ_720P_CROP 	{\
 							BOAD_ONw(0x1); BOAD_MODEw(0x1);		\
 							FONT_OFYw(0x20/*0x8a*/); FONT_OFXw(0x70/*0x1c4*/);	\
-							FONT_VBLKw(0x88); FONT_HBLKw(0x88);	\
+							FONT_VBLKw(0x87); FONT_HBLKw(0x8f);	\
 							FONT_VSIZw(0x1); FONT_HSIZw(0x1);}
 
 	#define MN_POS_SIZ_SMALL	{\

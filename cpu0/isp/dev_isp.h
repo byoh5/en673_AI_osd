@@ -534,7 +534,7 @@ extern void SystemReset(void);
 
 #define ISP_BOX_EA				32				// (fix) number of Box
 
-#define ISP_FONT_EAX			46/*30*/			// number of Horizontal Font		ksh modi
+#define ISP_FONT_EAX			60/*30*/			// number of Horizontal Font		ksh modi
 #define ISP_FONT_ID_EA			2048		// number of Font id
 #define ISP_FONT_ATTR_EA		2048		// number of Font attr
 #define	ISP_FONT_CHAR_EA		341			// number of font character
