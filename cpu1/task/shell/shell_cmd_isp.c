@@ -297,9 +297,10 @@ INT16S cmd_FontOsdControl(INT32S argc, char *argv[])
 	}
 	
 	txtosd_info osd_data;
-	strcpy(osd_data.info,argv[1]);		 
-	osd_data.posX = atoi(argv[2]);
-	osd_data.posY = atoi(argv[3]);
+	osd_data.active = atoi(argv[1]);
+	strcpy(osd_data.info,argv[2]);		 
+	osd_data.posX = atoi(argv[3]);
+	osd_data.posY = atoi(argv[4]);
 	while(MsgTxtOsdPut( &gptMsgTxtOsd, &osd_data) == DEF_FAIL)
 	vTaskDelay(1);	
 

@@ -23,7 +23,7 @@
          U strcat
          U strcpy
          U strncpy
-00000000 r ucExpectedStackBytes.10925
+00000000 r ucExpectedStackBytes.10926
 00000ed0 T ulTaskEndTrace
 000000ec b ulTaskSwitchedInTime
 00000000 t usTaskCheckFreeStackSpace

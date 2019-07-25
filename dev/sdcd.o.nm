@@ -1,4 +1,4 @@
-00000068 r C.8.12021
+00000068 r C.8.12022
          U DmaMemCpy_ip
          U DmaMemCpy_ip_async
 000005bc T Sdio0ClockDiv
@@ -25,16 +25,16 @@
 00000768 T Sdio_Print_OCR
 000014a0 T Sdio_Print_SCR
 00000fa4 T Sdio_Print_SSR
-000000d8 r __func__.10026
-000000c8 r __func__.10051
-000000b8 r __func__.10262
-00000048 r __func__.10295
-00000034 r __func__.10321
-000000a8 r __func__.10347
-00000054 r __func__.10366
-00000020 r __func__.10377
-00000014 r __func__.10385
-00000000 r __func__.10391
+000000d8 r __func__.10027
+000000c8 r __func__.10052
+000000b8 r __func__.10263
+00000048 r __func__.10296
+00000034 r __func__.10322
+000000a8 r __func__.10348
+00000054 r __func__.10367
+00000020 r __func__.10378
+00000014 r __func__.10386
+00000000 r __func__.10392
 00000000 b _sdioreg
          U hexDump
          U invalidate_dcache_range

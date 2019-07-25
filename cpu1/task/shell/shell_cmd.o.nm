@@ -27,10 +27,10 @@
          U UsrPWDCmd
          U UsrRMCmd
          U UsrSDCardSpeedTestCmd
-00000030 r __func__.12327
-00000020 r __func__.12334
-00000010 r __func__.12366
-00000000 r __func__.12393
+00000030 r __func__.12328
+00000020 r __func__.12335
+00000010 r __func__.12367
+00000000 r __func__.12394
          U atoi
          U atol
          U cmd_FontOsdControl

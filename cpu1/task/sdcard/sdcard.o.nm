@@ -5,12 +5,12 @@
          U Sdio0Deinit
          U Sdio0Init
          U Sdio0InitProcess
-00000010 r __func__.11128
-00000000 r __func__.11150
+00000010 r __func__.11129
+00000000 r __func__.11151
          U bSD_FAT_mounted
 00000008 b bSD_Format
 00000000 b bSD_State
-00000004 b cnt.11152
+00000004 b cnt.11153
          U drive_in
          U drive_init
          U drive_out

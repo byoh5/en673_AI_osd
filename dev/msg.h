@@ -463,6 +463,7 @@ typedef struct{                                 // msg_tunnel : Main -> Cop
 
 
 typedef struct {
+  UINT active;
   UINT posX;
   UINT posY;
   char info[32];

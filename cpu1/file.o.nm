@@ -2,7 +2,7 @@
          U __divdf3
          U __fixunsdfsi
          U __floatunsidf
-00000008 r __func__.11028
+00000008 r __func__.11029
          U __muldf3
 000000c4 T drive_in
 000008a4 T drive_init
@@ -23,4 +23,4 @@
          U printf
 00000000 T put_rc
          U sprintf
-00000320 r str.10986
+00000320 r str.10987

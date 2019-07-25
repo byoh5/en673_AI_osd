@@ -2,6 +2,6 @@
 00000000 T Aud_Isr
 000000ac T Aud_RegShow
          U DmaMemSet_ip
-00000000 r __func__.10004
-0000000c r __func__.9995
+00000000 r __func__.10005
+0000000c r __func__.9996
          U printf

@@ -442,11 +442,13 @@ ISRT void RuntimeMsg(void)
 					//char buffer[32];
 					//int len=0;
 					if (MsgTxtOsdGet(&gptMsgTxtOsd, &arg_txtosd) == DEF_OK) {
-						
-						printf("%s %d %d\r\n",arg_txtosd.info,arg_txtosd.posX,arg_txtosd.posY);
+						printf("CLR:%d %s %d %d\r\n",arg_txtosd.active,arg_txtosd.info,arg_txtosd.posX,arg_txtosd.posY);
+						if(arg_txtosd.active == 1){
 						//len = sprintf(buffer, "%s",arg_txtosd.info);
-						DispStr(arg_txtosd.info, arg_txtosd.posY, arg_txtosd.posX, strlen(arg_txtosd.info));
-						
+							DispStr(arg_txtosd.info, arg_txtosd.posY, arg_txtosd.posX, strlen(arg_txtosd.info));
+						}else{
+							DispClr(arg_txtosd.posY, arg_txtosd.posX, strlen(arg_txtosd.info));
+						}
 					}
 				}
 				break;
