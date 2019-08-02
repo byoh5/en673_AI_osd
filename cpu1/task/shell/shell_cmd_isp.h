@@ -37,6 +37,8 @@
 extern INT16S cmd_ispControl(INT32S argc, char *argv[]);
 extern INT16S cmd_ispOSDControl(INT32S argc, char *argv[]);
 extern INT16S cmd_FontOsdControl(INT32S argc, char *argv[]);
+extern INT16S cmd_GetClr(INT32S argc, char *argv[]);
+extern INT16S cmd_GetMD(INT32S argc, char *argv[]);
 
 
 //extern INT16S cmd_ispControl_menu(INT32S argc, char *argv[]);

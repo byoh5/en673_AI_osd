@@ -27,13 +27,15 @@
          U UsrPWDCmd
          U UsrRMCmd
          U UsrSDCardSpeedTestCmd
-00000030 r __func__.12328
-00000020 r __func__.12335
-00000010 r __func__.12367
-00000000 r __func__.12394
+00000030 r __func__.12335
+00000020 r __func__.12342
+00000010 r __func__.12374
+00000000 r __func__.12401
          U atoi
          U atol
          U cmd_FontOsdControl
+         U cmd_GetClr
+         U cmd_GetMD
          U cmd_dhcp
          U cmd_envvar
          U cmd_fontosd

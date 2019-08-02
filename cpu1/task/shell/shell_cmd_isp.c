@@ -315,7 +315,44 @@ INT16S cmd_FontOsdControl(INT32S argc, char *argv[])
 }
 
 
+INT16S cmd_GetMD(INT32S argc, char *argv[])
+{
+	printf("argc %d\r\n",argc);
+	
+		int i=0; 
+		for(i=0;i<argc;i++){
+			printf("%d : %s \r\n",i,argv[i]);
+		}
+	printf("MOTION %d\n",gptMsgISPTbl.ISP_MOTION_REF);
 
+
+}
+
+INT16S cmd_GetClr(INT32S argc, char *argv[])
+{
+	printf("argc %d\r\n",argc);
+	
+		int i=0; 
+		for(i=0;i<argc;i++){
+			printf("%d : %s \r\n",i,argv[i]);
+		}
+	if(argc == 3){	
+	UINT ox = atoi(argv[1]);
+ 	UINT oy = atoi(argv[2]); 
+	UINT offsetY = ((oy - 1)*ox)+ ox;
+	UINT offsetCb =((offsetY/2)&0xfffffff7);
+	UINT offsetCr = offsetCb+1;
+	BYTE* posY = (BYTE*) H264_CURYBUF;
+	BYTE* posC = (BYTE*) H264_CURCBUF;
+	printf("Y=%d Cb=%d Cr=%d \n",*(posY+offsetY),*(posC+offsetCb),*(posC+offsetCr));
+	UINT red 	= 1.164*(*(posY+offsetY)-16) + 1.596*(*(posC+offsetCr)-128);
+	UINT green 	= 1.164*(*(posY+offsetY)-16) - 0.813*(*(posC+offsetCb)-128) - 0.392*(*(posC+offsetCr)-128);
+	UINT blue 	= 1.164*(*(posY+offsetY)-16) + 2.017*(*(posC+offsetCb)-128);
+
+	printf("r=%d g=%d b=%d \n",red,green,blue);
+	}
+	
+}
 
 #if 0
 INT16S cmd_ispControl_menu(INT32S argc, char *argv[])

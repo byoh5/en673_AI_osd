@@ -375,6 +375,7 @@ typedef struct {
 	BYTE KEY_DIRECTION;
 	BYTE KEY_VALUE;
 	BYTE ISP_MOTION;
+	BYTE ISP_MOTION_REF;
 	BYTE MENU_STYLE;
 //	BYTE dummy;
 } isp_msg_t;

@@ -5,11 +5,11 @@
 00000800 T PhyAutoNeg
 0000090c T PhyInit
 000006a0 T PhyIrq
-00000000 b PhyIrqFlag.11150
+00000000 b PhyIrqFlag.11151
 00000140 T PhyLinkInfo
 000000a8 T PhyLinkState
 00000000 T PhyReset
-00000000 r __func__.11130
+00000000 r __func__.11131
          U gtMyNetIf
          U netif_set_link_down
          U netif_set_link_up

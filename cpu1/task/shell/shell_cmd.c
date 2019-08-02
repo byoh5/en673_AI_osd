@@ -123,6 +123,9 @@ tMonCmd gCmdList[] =
 	{"isp",			cmd_ispControl,		sIspControl		},
 	{"aiosd",		cmd_ispOSDControl,		sIspControl		},
 	{"ftosd",		cmd_FontOsdControl,		sIspControl		},
+	{"gclr",		cmd_GetClr,		sIspControl		},
+	{"gmd",			cmd_GetMD,		sIspControl		},
+	
 #ifdef __HW_OSD__
 	{"osd",         cmd_fontosd,        sFontOSDCmd     },
 #endif

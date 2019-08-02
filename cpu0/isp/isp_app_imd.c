@@ -690,6 +690,8 @@ void ISPM MovingChk(int *aiMask_sx,int *aiMask_ex,int *aiMask_sy,int *aiMask_ey)
 			GpioSetLo(GPIO_MOTION);
 		#endif
 //			TxStr("Low",0,"\n");
+			DispStr("Motion OFF!!!", gbIMDFontY, gbIMDFontX, 13);	
+			gptMsgISPTbl.ISP_MOTION_REF = 0;
 		}
 		else
 		{
@@ -697,6 +699,8 @@ void ISPM MovingChk(int *aiMask_sx,int *aiMask_ex,int *aiMask_sy,int *aiMask_ey)
 			GpioSetHi(GPIO_MOTION);
 		#endif
 //			TxStr("High",1,"\n");
+			DispStr("Motion ON !!!", gbIMDFontY, gbIMDFontX, 13);	
+			gptMsgISPTbl.ISP_MOTION_REF = 1;
 		}
 	}
 //	else

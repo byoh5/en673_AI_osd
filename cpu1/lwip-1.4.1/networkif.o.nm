@@ -4,10 +4,10 @@
          U MdioInit
          U MsgPut
          U PhyInit
-00000030 r __func__.11191
-00000018 r __func__.11264
-0000000c r __func__.11277
-00000000 r __func__.11283
+00000030 r __func__.11192
+00000018 r __func__.11265
+0000000c r __func__.11278
+00000000 r __func__.11284
          U gptMsgCpu1to0
          U gptMsgDebug
          U gptMsgNetworkRX1
@@ -29,7 +29,7 @@
 00000808 T network_check_netif
 00000874 T network_default_netif
          U network_ethif_start
-00000008 b oneshot.11165
+00000008 b oneshot.11166
          U pbuf_alloc
          U pbuf_free
          U printf

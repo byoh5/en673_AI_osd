@@ -1,6 +1,6 @@
-00000038 r __func__.10912
-00000020 r __func__.10916
-00000000 r __func__.10954
+00000038 r __func__.10913
+00000020 r __func__.10917
+00000000 r __func__.10955
          U atoi
 000007f4 T avienc_info_default
 0000090c T avienc_info_deinit

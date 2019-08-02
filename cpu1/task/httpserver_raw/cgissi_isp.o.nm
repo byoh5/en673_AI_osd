@@ -6,7 +6,7 @@
 00000000 t SSI_isp_image
 00000308 t SSI_isp_motion
          U UserSave
-00000054 r __func__.12159
+00000054 r __func__.12160
          U atoi
          U gbMnParTbl
          U gptMsgCpu1to0

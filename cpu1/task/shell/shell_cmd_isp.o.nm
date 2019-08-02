@@ -1,14 +1,22 @@
-00000010 r C.8.12685
+00000038 r C.10.12767
 00000000 t CGI_isp_BYTE_MAX_MIN_.clone.0
          U MsgPut
          U MsgTxtOsdPut
-00000000 r __func__.11148
+         U __adddf3
+         U __fixunsdfsi
+         U __floatsidf
+00000028 r __func__.11155
+         U __muldf3
+         U __subdf3
          U atoi
 00000268 T cmd_FontOsdControl
+0000040c T cmd_GetClr
+00000378 T cmd_GetMD
 00000060 T cmd_ispControl
 00000168 T cmd_ispOSDControl
          U gbMnParTbl
          U gptMsgCpu1to0
+         U gptMsgISPTbl
          U gptMsgTxtOsd
          U memcpy
          U printf

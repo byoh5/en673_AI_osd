@@ -5,14 +5,14 @@
          U MsgRecGet
          U Sdio0GetInstall
          U WaitXus
-000001e4 r __func__.10958
-000001c8 r __func__.10964
-000001b0 r __func__.10973
-00000194 r __func__.10984
-00000180 r __func__.11005
-0000016c r __func__.11043
-00000154 r __func__.11062
-0000013c r __func__.11109
+000001e4 r __func__.10959
+000001c8 r __func__.10965
+000001b0 r __func__.10974
+00000194 r __func__.10985
+00000180 r __func__.11006
+0000016c r __func__.11044
+00000154 r __func__.11063
+0000013c r __func__.11110
          U avi_write_chunkheader
          U avi_write_header
          U avi_write_index

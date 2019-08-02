@@ -1,8 +1,8 @@
-000001c8 r C.11.13467
-0000016c r C.12.13468
-00000160 r C.3.13353
-00000200 r C.31.14263
-000000f8 r C.4.13354
+000001c8 r C.11.13468
+0000016c r C.12.13469
+00000160 r C.3.13354
+00000200 r C.31.14264
+000000f8 r C.4.13355
          U CpuIdGet
          U EYENIX_vTaskGetRunTimeCntNStats
 00000000 t GpioGetFuncPin
@@ -23,11 +23,11 @@
 000011d0 T UsrGPIOState
          U __divdf3
          U __floatunsidf
-000001f4 r __func__.11397
-000001e8 r __func__.11438
-000001d8 r __func__.11484
-000000e8 r __func__.11726
-000000dc r __func__.11736
+000001f4 r __func__.11398
+000001e8 r __func__.11439
+000001d8 r __func__.11485
+000000e8 r __func__.11727
+000000dc r __func__.11737
          U atoi
 00004f0c T cmd_envvar
 00001f68 T cmd_fontosd

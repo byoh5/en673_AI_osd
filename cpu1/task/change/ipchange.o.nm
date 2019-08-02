@@ -1,6 +1,6 @@
 000002d0 T ChangeDefDeviceId
          U MsgPut_nolock
-00000000 r __func__.10925
+00000000 r __func__.10926
          U dhcp_inform
          U dhcp_release
          U dhcp_start
